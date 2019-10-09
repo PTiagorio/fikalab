@@ -1,5 +1,9 @@
+
 .DS_Store
 app.json
+/EthAndroid/build
+/EthAndroid/captures
+/EthAndroid/.externalNativeBuild
 */**/.DS_Store
 node_modules
 npm-debug.log
@@ -14,4 +18,14 @@ config/nodes.js
 .node-xmlhttprequest-*
 ws_secret.json
 stats.json
+
+*.iml
+/EthAndroid/.gradle
+/EthAndroid/local.properties
+/EthAndroid/.idea/caches
+/EthAndroid/.idea/libraries
+/EthAndroid/.idea/modules.xml
+/EthAndroid/.idea/workspace.xml
+/EthAndroid/.idea/navEditor.xml
+/EthAndroid/.idea/assetWizardSettings.xml
 
