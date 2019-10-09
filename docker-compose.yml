@@ -4,7 +4,7 @@ services:
     image: web3labs/epirus-free-api:latest
     environment:
       - ENABLE_PRIVATE_QUORUM=enabled
-      - NODE_ENDPOINT=${NODE_ENDPOINT}
+      - NODE_ENDPOINT=$endpoint
       - MONGO_CLIENT_URI=mongodb://mongodb:27017
       - MONGO_DB_NAME=epirus
     depends_on:
