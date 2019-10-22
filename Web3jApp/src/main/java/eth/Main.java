@@ -34,7 +34,7 @@ public class Main {
     private Credentials credentials;
     private String wAddr;
     private Contract_sol_test smartContract;
-    private String contractAddr = "0xFAa20c33C7F48543ee6FB65ce96B5418d2EFEfaa"; //
+    private String contractAddr = "0x07467821C957EDeF9c80cEC1B31890ee7b705069"; //
     private String filename;
 
     public static void main(String[] args) {
@@ -55,7 +55,7 @@ public class Main {
         System.out.println(m.loadContract());
         System.out.println(m.Action("cima","teste"));
 
-        /*Map<String,List<String>> map = m.getHistory();
+        Map<String,List<String>> map = m.getHistory();
         Iterator<String> it = map.keySet().iterator();
         while(it.hasNext()){
             String user = it.next();
@@ -64,7 +64,7 @@ public class Main {
             for(int i=0;i<l.size();i++){
                 System.out.print(l.get(i)+"; ");
             }
-        }*/
+        }
         //
 
 
@@ -142,9 +142,8 @@ public class Main {
 
     public String deployContract(){
         try {
-            byte[] array= new byte[32];
-            array[0] = 'C';
-            smartContract = Contract_sol_test.deploy(web3, credentials, DefaultGasProvider.GAS_PRICE,DefaultGasProvider.GAS_LIMIT,array).send();
+
+            smartContract = Contract_sol_test.deploy(web3, credentials, DefaultGasProvider.GAS_PRICE,DefaultGasProvider.GAS_LIMIT,"nome").send();
             contractAddr =smartContract.getContractAddress();
 
             return contractAddr;
@@ -179,9 +178,9 @@ public class Main {
 
     public String Action(String move,String username){
         try {
-            Bytes32 m = stringToBytes32(move);
-            Bytes32 u = stringToBytes32(username);
-            TransactionReceipt transactionReceipt = smartContract.move(m, u).send();
+            //Bytes32 m = stringToBytes32(move);
+            //Bytes32 u = stringToBytes32(username);
+            TransactionReceipt transactionReceipt = smartContract.move(move, username).send();
             return transactionReceipt.getTransactionHash();
         }catch (Exception e){
             return "erro "+e;
@@ -207,7 +206,7 @@ public class Main {
         Map<String,List<String>> map = new HashMap<>();
         try {
 
-            Tuple2<List<byte[]>, List<byte[]>> lista = smartContract.getHistory().send();
+            Tuple2<List<String>, List<String>> lista = smartContract.getHistory().send();
             List<String> values = new ArrayList<>();
             List<String> keys = new ArrayList<>();
             for(int i = 0;i<lista.getValue1().size();i++){
