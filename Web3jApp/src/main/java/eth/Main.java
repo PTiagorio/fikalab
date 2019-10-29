@@ -41,6 +41,7 @@ public class Main {
         // TODO Auto-generated method stub
 
         Main m = new Main();
+
         System.out.println(m.connect());
         System.out.println(m.loadWallet());
         Thread t = new Thread(){
@@ -65,11 +66,24 @@ public class Main {
                 System.out.print(l.get(i)+"; ");
             }
         }
+
         //
 
 
         //System.out.println(m.deployContract());
-        m.exit();
+        //m.exit();
+    }
+
+    public String executeScript(String dir){
+        String s = "python /home/luis/Desktop/fika/Web3jApp/src/main/java/eth/" + dir + ".py";    //"scipt+cima; script+baixo; ..."
+        try {
+
+            //Runtime.getRuntime().exec(path);
+            Process p = Runtime.getRuntime().exec(s);
+            return "works";
+        }catch(Exception e){
+            return "erro"+e;
+        }
     }
 
     //private String privateKey = "9928CE3F5D15DDBA026B855B4D1017E680777B0C17314F66B39E64D391427401";
@@ -195,7 +209,7 @@ public class Main {
                 String sender = log.sender;
                 String addr = log.log.getAddress();
                 System.out.println(name+", "+dir+", "+sender+", "+addr);
-                //executeScript(dir);
+                 executeScript(dir);
             });
         }catch(Exception e){
             System.out.println();
