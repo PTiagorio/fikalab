@@ -28,3 +28,15 @@
 19:16:21.051895 db@open done T·170.279952ms
 19:50:50.984014 db@close closing
 19:50:51.080423 db@close done T·136.567096ms
+=============== Oct 30, 2019 (WET) ===============
+17:15:22.294723 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+17:15:22.396214 version@stat F·[2] S·1MiB[1MiB] Sc·[0.50]
+17:15:22.396278 db@open opening
+17:15:22.396562 journal@recovery F·1
+17:15:22.437408 journal@recovery recovering @6
+17:15:22.529781 memdb@flush created L0@8 N·3 S·521B "Dat..ion,v21267":"eth..ˏ\xa3,v21266"
+17:15:22.531970 version@stat F·[3] S·1MiB[1MiB] Sc·[0.75]
+17:15:22.653275 db@janitor F·5 G·0
+17:15:22.653322 db@open done T·257.022129ms
+17:17:09.051107 db@close closing
+17:17:09.260701 db@close done T·243.73896ms

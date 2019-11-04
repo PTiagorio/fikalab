@@ -1,10 +1,16 @@
 package com.example.ethandroid;
 
+import android.content.ContentResolver;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.util.Log;
+import android.webkit.MimeTypeMap;
 import android.widget.Toast;
 
+import org.bouncycastle.asn1.smime.SMIMEEncryptionKeyPreferenceAttribute;
 import org.reactivestreams.Subscription;
 import org.web3j.abi.datatypes.generated.Bytes32;
 import org.web3j.crypto.Credentials;
@@ -32,7 +38,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static org.web3j.tx.Transfer.GAS_LIMIT;
+import static org.web3j.tx.gas.DefaultGasProvider.GAS_LIMIT;
 import static org.web3j.tx.gas.DefaultGasProvider.GAS_PRICE;
 
 public class ConnectEth {
@@ -46,19 +52,20 @@ public class ConnectEth {
     private Credentials credentials;
     private String wAddr;
     private Contract_sol_test smartContract;
-    private String contractAddr;
+    private String contractAddr = "0x2036cda1ef0fecf329a12aa668dae5031c6d8cdc";//"0x21eddf45C64aD7643D3adbF2042E917a60b82beB";
     private String filename;
     //private String privateKey = "9928CE3F5D15DDBA026B855B4D1017E680777B0C17314F66B39E64D391427401";
 
     public ConnectEth(Context context){
-        walletPath = context.getFilesDir().getAbsolutePath();
-        walletDir = new File(walletPath);
+        //walletPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
         this.context = context;
-        filename = walletDir.listFiles()[0].getName();
+
     }
     public boolean connect(){
 
-        web3 = Web3j.build(new HttpService("https://ropsten.infura.io/v3/b321b2057ccc412da1a6cfc01c158880"));
+        //web3 = Web3j.build(new HttpService()); //default http:localhost:8545
+        web3 = Web3j.build(new HttpService("https://kovan.infura.io/v3/b321b2057ccc412da1a6cfc01c158880"));//kovan: kovan.infura.io/v3/b321b2057ccc412da1a6cfc01c158880
+        //ropsten: ropsten.infura.io/v3/b321b2057ccc412da1a6cfc01c158880
         try {
             Web3ClientVersion clientVersion = web3.web3ClientVersion().sendAsync().get();
             if(!clientVersion.hasError()){
@@ -82,31 +89,62 @@ public class ConnectEth {
         }
     }
 
+
+    /*public void save(File f){
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(MediaStore.Downloads.TITLE, f.getName());
+        contentValues.put(MediaStore.Downloads.DISPLAY_NAME, f.getName());
+        contentValues.put(MediaStore.Downloads.MIME_TYPE, MimeTypeMap.getFileExtensionFromUrl(f.getAbsolutePath()));
+        contentValues.put(MediaStore.Downloads.SIZE, f.getTotalSpace());
+        contentValues.put(MediaStore.Downloads.RELATIVE_PATH, Environment.DIRECTORY_DOWNLOADS + File.separator + "Fika");
+
+        ContentResolver database = context.getContentResolver();
+        database.insert(MediaStore.Downloads.EXTERNAL_CONTENT_URI, contentValues);
+    }*/
+
     public void wallet(String password){
 
-
+        File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+        walletDir=path;
         try{
+            File temp = new File(walletDir+"/wallet.json");
+            if(!temp.exists()){
+                filename = WalletUtils.generateLightNewWalletFile(password,path);
+                File w = new File(walletDir+"/"+filename);
+                w.renameTo(new File(walletDir+"/wallet.json"));
+            }
+
+            credentials = WalletUtils.loadCredentials(password,temp);
+            wAddr=credentials.getAddress();
+            Log.d("log","well2"+credentials.getAddress());
+        }catch(Exception e){
+            Log.d("log","erro: "+e);
+        }
+        /*try{
             this.password=password;
-            String[] xx = walletDir.list();
-            for(int i=0;i<xx.length;i++){
-                Log.d("log","first time:"+xx[i]);
-            }
+            File[] xx = walletDir.listFiles();
 
-            filename = WalletUtils.generateLightNewWalletFile(password,walletDir);
-
-            for(int i=0;i<xx.length;i++){
-                Log.d("log","after:"+xx[i]);
+            if(xx.length>1){
+                credentials = WalletUtils.loadCredentials(password,xx[0].getAbsoluteFile());
             }
+            else {
+                WalletUtils.generateLightNewWalletFile(password, walletDir);
+                xx = walletDir.listFiles();
+                credentials = WalletUtils.loadCredentials(password, xx[0].getAbsoluteFile());
+            }
+            filename = xx[0].getName();
+            wAddr = credentials.getAddress();
             //WalletUtils.generateNewWalletFile(password   , walletDir);
-            Log.d("log","well, "+walletDir+", result: "+filename);
+
         }
         catch (Exception e){
             //Display an Error
             Log.d("log","erroWallet: "+e);
         }
+        */
     }
 
-    public String getAddr(String password){
+    /*public String getAddr(String password){
         try {
             credentials = WalletUtils.loadCredentials(password,walletDir+"/"+"UTC--2019-10-05T05-40-11.9Z--1dd2c69132c709f69b646ec446b06661d0bcddec.json");
 
@@ -119,7 +157,7 @@ public class ConnectEth {
             Log.d("log","erroAddr: "+e);
             return "erroAddr: "+e;
         }
-    }
+    }*/
 
     public String getBalance(){
         BigInteger wei;
@@ -145,7 +183,7 @@ public class ConnectEth {
         try {
             byte[] array= new byte[32];
             array[0] = 'C';
-            smartContract = Contract_sol_test.deploy(web3, credentials, DefaultGasProvider.GAS_PRICE,DefaultGasProvider.GAS_LIMIT,array).send();
+            smartContract = Contract_sol_test.deploy(web3, credentials, DefaultGasProvider.GAS_PRICE,DefaultGasProvider.GAS_LIMIT,"nome").send();
             contractAddr =smartContract.getContractAddress();
             Log.d("log","deploy bom");
             return contractAddr;
@@ -158,6 +196,9 @@ public class ConnectEth {
     public String getContractAddr(){
         return contractAddr;
     }
+    public String getwAddr(){
+        return wAddr;
+    }
 
     public String loadContract(){
         try {
@@ -167,15 +208,19 @@ public class ConnectEth {
             return contractAddr;
         }catch(Exception e){
 
-            return "Error";
+            return "Error"+e;
         }
     }
 
-    public void Action(String move,String username){
+    public String Action(String move,String username){
         try {
-            TransactionReceipt transactionReceipt = smartContract.move(move.getBytes(), username.getBytes()).send();
+            Log.d("log","tried.");
+            TransactionReceipt transactionReceipt = smartContract.move(move, username).send();
+            Log.d("log",transactionReceipt.getStatus());
+            return transactionReceipt.getStatus();
         }catch (Exception e){
-            return ;
+            Log.d("log","erro: "+e);
+            return "erro: "+e;
         }
     }
 
@@ -194,7 +239,7 @@ public class ConnectEth {
         }
     }
 
-    public Map<String,List<String>> getHistory(){
+    /*public Map<String,List<String>> getHistory(){
         Map<String,List<String>> map = new HashMap<>();
         try {
             Tuple2<List<byte[]>, List<byte[]>> lista = smartContract.getHistory().send();
@@ -219,5 +264,5 @@ public class ConnectEth {
             return map;
         }
         return map;
-    }
+    }*/
 }

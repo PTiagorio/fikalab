@@ -2,11 +2,15 @@ package com.example.ethandroid;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
@@ -18,23 +22,15 @@ import java.sql.Connection;
 import java.util.List;
 import java.util.Map;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
     private ConnectEth con;
-    private Button connect;
-    private Button wallet;
-    private Button addr;
-    private Button deploy;
-    private Button load;
-    private Button up;
-    private Button down;
-    private Button left;
-    private Button right;
-    private Button history;
-    private String name;
-
+    private String name="ola";
     private Map<String, List<String>> log;
-
+    private boolean state=false,erro=false;
+    private int nvidas=3;
+    View textview2,hearts;
+    View[] heart = {null,null,null};
     public MainActivity() {
     }
 
@@ -42,28 +38,50 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        connect = findViewById(R.id.bConnect);
-        connect.setText("Connect");
-        wallet = findViewById(R.id.bWallet);
-        wallet.setText("Create Wallet");
-        addr = findViewById(R.id.bAddr);
-        addr.setText("Get Wallet");
-        deploy = findViewById(R.id.bDeploy);
-        deploy.setText("deploy Contract");
-        load = findViewById(R.id.bLoad);
-        load.setText("Load Contract");
-
-
         try {
             setupBouncyCastle();
 
         }catch(Exception e){
             Log.d("log","erro main: "+e);
         }
+        connect();
+        wallet();
+        hearts = findViewById(R.id.hearts);
+        heart[0] = findViewById(R.id.heart1);
+        heart[1] = findViewById(R.id.heart2);
+        heart[2] = findViewById(R.id.heart3);
+        //((ViewGroup) hearts.getParent()).removeView(hearts);
+        //((ViewGroup) hearts.getParent()).removeView(hearts);
+        hearts.setVisibility(View.GONE);
+        /*Thread t = new Thread(){
+            @Override
+            public void run(){
+                con.deployContract();
+            }
+        };
+        t.start();*/
+
+        load();
     }
 
-    public void onConnect(View view){
+    /*@Override
+    protected void onStart() {
+        super.onStart();
+        TextView tv;
+        try{
+            //Thread.sleep(5000);
+        }catch (Exception e){
+            Log.d("log","erro main: "+e);
+        }
+        tv = findViewById(R.id.texto);
+        tv.setText("Wallet: " + con.getwAddr() + "\nSmart Contract Adress: " + con.getContractAddr());
+    }*/
+
+   /* public void onCima(View view){
+        Toast.makeText(this,"Teste",Toast.LENGTH_LONG).show();
+    }*/
+
+    public void connect(){
         try{
              con = new ConnectEth(this);
             if (con.connect()) {
@@ -73,26 +91,37 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this,"erro connect, "+e,Toast.LENGTH_LONG).show();
         }
     }
-    public void onWallet(View view){
+
+    public void wallet(){
         try{
             con.wallet("pwd");
-            Toast.makeText(this, "wallet created ", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "wallet created: "+con.getwAddr(), Toast.LENGTH_LONG).show();
+            Log.d("log","addr: "+con.getwAddr());
         }catch(Exception e){
-            Toast.makeText(this,"erro connect, "+e,Toast.LENGTH_LONG).show();
+            Log.d("log","erro: "+e);
+            Toast.makeText(this,"erro wallet, "+e,Toast.LENGTH_LONG).show();
         }
 
     }
 
-    public void onAddr(View view){
+    public String getWalletAddr(){
+        return con.getwAddr();
+    }
+
+    public String getContractAddr(){
+        return con.getContractAddr();
+    }
+
+    /*public void onAddr(View view){
         try{
             con.getAddr("pwd");
             Toast.makeText(this, "Your address is " + con.getAddr("pwd"), Toast.LENGTH_LONG).show();
         }catch(Exception e){
             Toast.makeText(this,"erro connect, "+e,Toast.LENGTH_LONG).show();
         }
-    }
+    }*/
 
-    public void onDeploy(View view){
+    /*public void onDeploy(View view){
 
         try{
             //con.deployContract();
@@ -102,8 +131,9 @@ public class MainActivity extends AppCompatActivity {
         }catch(Exception e){
             Toast.makeText(this,"erro deploy, "+e,Toast.LENGTH_LONG).show();
         }
-    }
-    public void onLoad(View view){
+    }*/
+
+    public void load(){
         try{
             String t = con.loadContract();
             Toast.makeText(this, t, Toast.LENGTH_LONG).show();
@@ -111,15 +141,70 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this,"erro connect, "+e,Toast.LENGTH_LONG).show();
         }
     }
-    public void onHistory(View view){
+
+
+    /*public void onHistory(View view){
         Toast.makeText(this,""+con.getHistory(), Toast.LENGTH_LONG).show();
+    }*/
+    public void lose(){
+        Log.d("log","Game Over");
+        Toast.makeText(this,"Game Over",Toast.LENGTH_LONG).show();
     }
+
+    public void updateHearts(){
+        if(!state){
+            //textview = findViewById(R.id.genView);
+            textview2 = findViewById(R.id.texto);
+            //textview2.getParent()).removeView(textview2);
+            textview2.setVisibility(View.GONE);
+            hearts.setVisibility(View.VISIBLE);
+            state = true;
+        }
+        else
+        if(erro){
+            switch(nvidas){
+                case 0:
+                    break;
+                case 1:
+                    heart[nvidas-1].setVisibility(View.GONE);
+                    nvidas--;
+                    lose();
+                    break;
+                case 2: case 3:
+                    heart[nvidas-1].setVisibility(View.GONE);
+                    nvidas--;
+                    break;
+                default:
+                    Log.d("log","error");
+                    break;
+
+            }
+        }
+    }
+    /*public void onHelp(View view){
+        Intent intent = new Intent(this, DisplayMessageActivity.class);
+        startActivity(intent);
+    }*/
     public void onUp(View view){
-        con.Action("up",name);
+        //Toast.makeText(this, "cima, "+name, Toast.LENGTH_LONG).show();
+        updateHearts();
+        Thread t = new Thread(){
+            @Override
+            public void run(){
+                Log.d("log","started");
+                con.Action("cima",name);
+                Log.d("log","ended...");
+            }
+        };
+        t.start();
+        Toast.makeText(this,"deployed thread",Toast.LENGTH_SHORT).show();
+
     }
 
     public void onDown(View view){
-        con.Action("down",name);
+        //con.Action("baixo",name);
+        erro = !erro;
+        Toast.makeText(this,"erro: " + erro,Toast.LENGTH_SHORT).show();
     }
     public void onRight(View view){
         con.Action("right",name);
@@ -128,10 +213,10 @@ public class MainActivity extends AppCompatActivity {
         con.Action("left",name);
     }
 
-
+    /*
     public void getHistory(){
         log = con.getHistory();
-    }
+    }*/
 
 
     private void setupBouncyCastle() {
@@ -153,15 +238,3 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 
-class Background extends Thread{
-
-    private ConnectEth con;
-
-    public Background(ConnectEth con){
-        this.con = con;
-    }
-    @Override
-    public void run(){
-        con.deployContract();
-    }
-}
