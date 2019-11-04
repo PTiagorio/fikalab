@@ -50,6 +50,7 @@ public class Main {
         System.out.println(m.connect());
         //System.out.print(m.connectRpc());
         //m.createW();
+        //System.out.println(m.createLightWallet());
         System.out.println(m.loadWallet());
         //System.out.print(m.getBalance());
         //System.out.print(m.deployContract());
@@ -98,13 +99,16 @@ public class Main {
     }
 
     public String executeScript(String dir){
-        String s = "python /home/luis/Desktop/fika/Web3jApp/src/main/java/eth/" + dir + ".py";    //"scipt+cima; script+baixo; ..."
+        String s = "python /home/pi/Documentos/my_rpi/"+dir+".py";    //"scipt+cima; script+baixo; ..."
+        System.out.print(s);
         try {
 
             //Runtime.getRuntime().exec(path);
             Process p = Runtime.getRuntime().exec(s);
+            System.out.print("done well");
             return "works";
         }catch(Exception e){
+            System.err.print(e);
             return "erro"+e;
         }
     }
@@ -171,8 +175,20 @@ public class Main {
         File dir = new File("/home/luis/Desktop/fika/");
         String walletFile;
         try {
-             walletFile = WalletUtils.generateNewWalletFile("pwd", dir);
-             credentials = WalletUtils.loadCredentials("pwd",new File(walletFile));
+            walletFile = WalletUtils.generateNewWalletFile("pwd", dir);
+            credentials = WalletUtils.loadCredentials("pwd",new File(walletFile));
+        }catch(Exception e){
+            return "error gen: "+e;
+        }
+        return "done well "+credentials.getAddress();
+    }
+
+    public String createLightWallet(){
+        File dir = new File("/home/pi/Documentos/my_rpi/");
+        String walletFile;
+        try {
+            walletFile = WalletUtils.generateLightNewWalletFile("pwd", dir);
+            credentials = WalletUtils.loadCredentials("pwd",new File(walletFile));
         }catch(Exception e){
             return "error gen: "+e;
         }
@@ -182,7 +198,7 @@ public class Main {
     public String loadWallet(){
         try {
 
-            credentials = WalletUtils.loadCredentials("pwd","/home/luis/Desktop/fika/UTC--2019-10-31T18-07-09.563000000Z--fb14cc995ba649b1924a8dccdc3a0ea326c48f98.json"); ///home/luis/Desktop/fika/eth-net/db/keystore/UTC--2019-10-08T14-41-08.402000000Z--6c09f8473f6efa2016f46ace8e261c1331bc5f29.json
+            credentials = WalletUtils.loadCredentials("pwd","/home/pi/Documentos/my_rpi/UTC--2019-11-04T14-44-20.429000000Z--9c402fd296f4922eadebd405a5cfc33df0416a11.json"); ///home/luis/Desktop/fika/eth-net/db/keystore/UTC--2019-10-08T14-41-08.402000000Z--6c09f8473f6efa2016f46ace8e261c1331bc5f29.json
             wAddr=credentials.getAddress();
             return wAddr;
         }
@@ -262,14 +278,14 @@ public class Main {
     public void listen(){
         try{
             smartContract.movedEventFlowable(DefaultBlockParameterName.EARLIEST,DefaultBlockParameterName.LATEST).doOnError(error -> System.err.println("The error message is: " + error.getMessage())).subscribe(log ->{
-                String name = log.name;
-                String dir = log.dir;
-                String sender = log.sender;
-                String addr = log.log.getAddress();
-                System.out.println(name+", "+dir+", "+sender+", "+addr);
-                 //executeScript(dir);
-            }
-            ,error ->System.err.print("erro: "+error));
+                        String name = log.name;
+                        String dir = log.dir;
+                        String sender = log.sender;
+                        String addr = log.log.getAddress();
+                        System.out.println(name+", "+dir+", "+sender+", "+addr);
+                        //executeScript(dir);
+                    }
+                    ,error ->System.err.print("erro: "+error));
         }catch(Exception e){
             System.out.println(e);
         }
@@ -289,7 +305,7 @@ public class Main {
                         String sender = log.sender;
                         String addr = log.log.getAddress();
                         System.out.println(name+", "+dir+", "+sender+", "+addr);
-                        executeScript(dir);
+                        executeScript(name);
                     }
                     ,error ->System.err.print("erro: "+error));
 
