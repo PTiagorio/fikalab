@@ -34,7 +34,7 @@ contract test is Contract {
 
     function move(string memory direction, string memory name) public {
        Moves memory m = Moves(direction,name);
-       require(isMoving==0,"Robot is moving, please wait before trying to move again");
+       require(isMoving==0,"Último movimento ainda a ser processado pela Blockchain, aguarde...");
        isMoving=1;
        uint existe=0;
        for(uint i=0;i<addresses.length;i++){

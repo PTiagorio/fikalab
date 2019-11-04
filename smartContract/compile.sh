@@ -1,3 +1,3 @@
 #!/bin/bash
 
-solcjs Contract.sol --bin --abi --optimize -o ~/Desktop/fika/smartContract
+solcjs $1.sol --bin --abi --optimize -o ~/Desktop/fika/smartContract
