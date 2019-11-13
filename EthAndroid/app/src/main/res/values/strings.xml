@@ -2,4 +2,8 @@
     <string name="app_name">GoPiGo Remote Controller</string>
     <string name="description">This application was built in order to control the GoPiGo robot
         using Smart Contracts and IoT technologies. Click on the buttons to start moving it!</string>
+    <string name="big_description">This application is part of a ISEC 2019 Fikalab project which is entitled \"Blockchain
+        for IoT: An AI and Smart Contracts Approach\" whose creators are as follow: Carlos Ferreira, Luís Silvestre,
+        Márcio Guia and Rodrigo Rafael.\n\nThis application was built in order to control the GoPiGo robot
+        using Smart Contracts and IoT technologies. Click on the buttons to start moving it! </string>
 </resources>

@@ -1,9 +1,13 @@
 package com.example.ethandroid;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,7 +26,7 @@ import java.sql.Connection;
 import java.util.List;
 import java.util.Map;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity  {
 
     private ConnectEth con;
     private String name="ola";
@@ -35,9 +39,42 @@ public class MainActivity extends Activity {
     }
 
     @Override
+    protected void onStart() {
+        super.onStart();
+
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        if (ContextCompat
+                .checkSelfPermission(this,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            // Permission is not granted
+            // Should we show an explanation?
+            //if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+            //        Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+                // Show an explanation to the user *asynchronously* -- don't block
+                // this thread waiting for the user's response! After the user
+                // sees the explanation, try again to request the permission.
+           // } else {
+                // No explanation needed; request the permission
+                ActivityCompat.requestPermissions(this,
+                        new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+
+                // MY_PERMISSIONS_REQUEST_READ_CONTACTS is an
+                // app-defined int constant. The callback method gets the
+                // result of the request.
+            //}
+        }
+        else {
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+        }
+
         try {
             setupBouncyCastle();
 
@@ -46,6 +83,12 @@ public class MainActivity extends Activity {
         }
         connect();
         wallet();
+        //con.requestEther();
+        //con.delMetaMask();
+        Log.d("log","b: "+con.getBalance());
+        if(con.getBalance()<=0.0){
+            con.requestEther();
+        }
         hearts = findViewById(R.id.hearts);
         heart[0] = findViewById(R.id.heart1);
         heart[1] = findViewById(R.id.heart2);
@@ -81,11 +124,12 @@ public class MainActivity extends Activity {
         Toast.makeText(this,"Teste",Toast.LENGTH_LONG).show();
     }*/
 
+
     public void connect(){
         try{
              con = new ConnectEth(this);
             if (con.connect()) {
-                Toast.makeText(this, "Connected ", Toast.LENGTH_LONG).show();
+            //    Toast.makeText(this, "Connected ", Toast.LENGTH_LONG).show();
             }
         }catch(Exception e){
             Toast.makeText(this,"erro connect, "+e,Toast.LENGTH_LONG).show();
@@ -181,10 +225,15 @@ public class MainActivity extends Activity {
             }
         }
     }
-    /*public void onHelp(View view){
-        Intent intent = new Intent(this, DisplayMessageActivity.class);
-        startActivity(intent);
-    }*/
+    public void onHelp(View view) {
+        Intent intent = new Intent(this, HelpActivity.class);
+        if (con != null){
+            //intent.putExtra("wAddr", con.getwAddr());
+            //intent.putExtra("connectEth", con);
+        }
+            //intent.putExtra("wAddr","invalid wallet address");
+         startActivity(intent);
+    }
     public void onUp(View view){
         //Toast.makeText(this, "cima, "+name, Toast.LENGTH_LONG).show();
         updateHearts();
