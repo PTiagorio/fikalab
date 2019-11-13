@@ -228,40 +228,59 @@ public class MainActivity extends Activity  {
     public void onHelp(View view) {
         Intent intent = new Intent(this, HelpActivity.class);
         if (con != null){
-            //intent.putExtra("wAddr", con.getwAddr());
+            intent.putExtra("wAddr", con.getwAddr());
+            intent.putExtra("username", con.getUsername());
+            intent.putExtra("balance",con.getBalance());
             //intent.putExtra("connectEth", con);
         }
-            //intent.putExtra("wAddr","invalid wallet address");
-         startActivity(intent);
+        //intent.putExtra("wAddr","invalid wallet address");
+        startActivityForResult(intent,0);
+        //con.setUsername();
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == RESULT_OK) {
+            if (data.hasExtra("username")) {
+                con.setUsername(data.getExtras().getString("username"));
+            }
+            if(data.hasExtra("request"))
+            {
+                if(con.getBalance()<1) {
+                    con.requestEther();
+                }
+                else{
+
+                }
+            }
+        }
     }
     public void onUp(View view){
         //Toast.makeText(this, "cima, "+name, Toast.LENGTH_LONG).show();
-        updateHearts();
-        Thread t = new Thread(){
-            @Override
-            public void run(){
-                Log.d("log","started");
-                con.Action("cima",name);
-                Log.d("log","ended...");
-            }
-        };
-        t.start();
-        Toast.makeText(this,"deployed thread",Toast.LENGTH_SHORT).show();
-
+        //updateHearts();
+        callAction("cima");
     }
 
     public void onDown(View view){
-        //con.Action("baixo",name);
-        erro = !erro;
-        Toast.makeText(this,"erro: " + erro,Toast.LENGTH_SHORT).show();
+        callAction("baixo");
     }
     public void onRight(View view){
-        con.Action("right",name);
+        callAction("direita");
     }
     public void onLetf(View view){
-        con.Action("left",name);
+        callAction("esquerda");
     }
 
+
+    public void callAction(String dir){
+        try {
+            MyThread t = new MyThread(dir);
+            t.start();
+            Toast.makeText(this, t.info(), Toast.LENGTH_SHORT).show();
+            t.join();
+        }catch(Exception e){
+            Toast.makeText(this,"erro na thread: "+e,Toast.LENGTH_SHORT).show();
+        }
+    }
     /*
     public void getHistory(){
         log = con.getHistory();
@@ -284,6 +303,24 @@ public class MainActivity extends Activity  {
         // of that it's possible to have another BC implementation loaded in VM.
         Security.removeProvider(BouncyCastleProvider.PROVIDER_NAME);
         Security.insertProviderAt(new BouncyCastleProvider(), 1);
+    }
+
+    public class MyThread extends Thread{
+        String str;
+        String dir;
+        public MyThread(String dir){
+            this.dir=dir;
+        }
+        @Override
+        public void run(){
+            Log.d("log","started");
+            str=con.Action(this.dir,name);
+            Log.d("log","ended...");
+        }
+
+        public String info(){
+            return str;
+        }
     }
 }
 
