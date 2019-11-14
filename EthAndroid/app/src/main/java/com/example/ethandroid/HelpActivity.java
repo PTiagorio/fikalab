@@ -13,9 +13,11 @@ public class HelpActivity extends Activity {
 
     TextView tv;
     EditText et;
+    TextView tv2;
     //ConnectEth con = null;
     String wAddr = null; // or other values
     String username = null;
+    String balance  = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +29,7 @@ public class HelpActivity extends Activity {
         if(b != null) {
             wAddr = b.getString("wAddr");
             username = b.getString("username");
+            balance = b.getString("balance");
         }
         else
             Log.d("log","Erro");
@@ -38,6 +41,10 @@ public class HelpActivity extends Activity {
         {
             et = findViewById(R.id.usernameET);
             et.setText(username);
+        }
+        if(balance!=null){
+            tv2 = findViewById(R.id.texto3);
+            tv2.setText("Wallet balance: "+balance);
         }
 
     }

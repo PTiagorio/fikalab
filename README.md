@@ -12,3 +12,11 @@ web3j docs for compiling and wrapper generators:
 
 generating java contract command:
 web3j solidity generate -a=Contract_sol_test.abi -b=Contract_sol_test.bin -o ~/Desktop/fika/smartContract -p=SmartContract
+
+
+//RUN raspEstatico APP#################
+
+java -cp web3jApp-1.0-SNAPSHOT-jar-with-dependencies.jar eth.Main
+
+
+

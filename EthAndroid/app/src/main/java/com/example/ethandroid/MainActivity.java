@@ -230,7 +230,7 @@ public class MainActivity extends Activity  {
         if (con != null){
             intent.putExtra("wAddr", con.getwAddr());
             intent.putExtra("username", con.getUsername());
-            intent.putExtra("balance",con.getBalance());
+            intent.putExtra("balance",con.getBalance().toString());
             //intent.putExtra("connectEth", con);
         }
         //intent.putExtra("wAddr","invalid wallet address");
@@ -247,9 +247,10 @@ public class MainActivity extends Activity  {
             {
                 if(con.getBalance()<1) {
                     con.requestEther();
+                    Toast.makeText(this,"requested 0.1 ether",Toast.LENGTH_SHORT).show();
                 }
                 else{
-
+                    Toast.makeText(this,"Wallet balance is too high to request ether",Toast.LENGTH_SHORT).show();
                 }
             }
         }
