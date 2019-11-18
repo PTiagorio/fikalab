@@ -26,6 +26,10 @@ AWS Lambda is a service that lets run code in Cloud or in other devices when wor
 
 ![Cloud Pathway](https://github.com/l-silvestre/fikalab/blob/master/Images/Cloud/image8.png)
 
+The Raspberry Pi 3B+ is listening decisions taken in the blockchain, and after get some results it connects to the Cloud through **AWS IoT Core**, publishing an MQTT message that tells which direction is supposed to make. Then, the **AWS IoT Greengrass** subscribes that topic to the corresponding **AWS Lambda** function, that runs locally in the GoPiGo the function needed to move the same GoPiGo.
+
+
+
 ### Break down into end to end tests
 
 Explain what these tests test and why
