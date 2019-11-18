@@ -16,7 +16,7 @@ No âmbito do nosso projeto, o IoT Core foi utilizado para realizar a comunicaç
 
 AWS IoT Greengrass é um serviço Cloud que extende outros serviços da AWS a dispositivos que estejam conectados ao IoT Greengrass Core, de forma a que os mesmos serviços sejam executados localmente nesses mesmos dispositivos.
 
-No contexto deste projeto o Greengrass é o que realiza a comunicação entre o Raspberry Pi 3B+ estático, serviços utilizados da Cloud e o GoPiGo. Detalhes de como foi instalado o Greengrass no GoPiGo de forma ao mesmo se tornar um dispositivo de IoT e conseguir correr funções localmente podem ser encontrados na pasta dos [Raspberry Pi 3B+](http://www.dropwizard.io/1.0.2/docs/).
+No contexto deste projeto o Greengrass é o que realiza a comunicação entre o Raspberry Pi 3B+ estático, serviços utilizados da Cloud e o GoPiGo.
 
 ### AWS Lambda
 
@@ -28,6 +28,9 @@ The Raspberry Pi 3B+ is listening decisions taken in the blockchain, and after g
 
 ![Cloud Pathway](https://github.com/l-silvestre/fikalab/blob/master/Images/Cloud/image8.png)
 
+```
+**Nota:** Detalhes de como foi enviado o MTQQ do Raspberry Pi 3B+ estático e como instalado o Greengrass no GoPiGo de forma ao mesmo se tornar um dispositivo de IoT e conseguir correr funções localmente podem ser encontrados na [pasta dos Raspberry Pi 3B+](http://www.dropwizard.io/1.0.2/docs/) neste projeto.
+```
 
 
 
