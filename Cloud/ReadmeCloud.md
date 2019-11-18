@@ -4,7 +4,7 @@ Nesta secção são explicados, com os devidos detalhes técnicos, todas os serv
 
 ## Tecnologias
 
-O grupo optou por utilizar a Cloud da **Amazon Web Services** neste projeto, por motivos de rapidez, qualidade dos serviços e comodidade com a tecnologia. Como tal, os serviços apresentados a seguir correspondem aos serviços prestados pela **AWS**.
+<div style="text-align: justify"> O grupo optou por utilizar a Cloud da **Amazon Web Services** neste projeto, por motivos de rapidez, qualidade dos serviços e comodidade com a tecnologia. Como tal, os serviços apresentados a seguir correspondem aos serviços prestados pela **AWS**. </div>
 
 ### AWS IoT Core
 
