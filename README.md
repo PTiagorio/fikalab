@@ -16,6 +16,8 @@ web3j solidity generate -a=Contract_sol_test.abi -b=Contract_sol_test.bin -o ~/D
 
 //RUN raspEstatico APP#################
 
+to update the jar file run: ./createJar.sh
+
 java -cp web3jApp-1.0-SNAPSHOT-jar-with-dependencies.jar eth.Main
 
 

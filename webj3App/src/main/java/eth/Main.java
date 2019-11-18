@@ -297,14 +297,14 @@ public class Main {
                 String addr = log.log.getAddress();
                 System.out.println(name+", "+dir+", "+sender+", "+addr);
                 
-                synchronized(sending){
+                synchronized((Object)sending){
                     if(sending==1){
                         Thread.sleep(1000);
                     }
                     sending=1;
                 }
                 executeScript(name);
-                synchronized(sending){
+                synchronized((Object)sending){
                     sending=0;
                 }
             }
