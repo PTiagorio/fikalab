@@ -28,9 +28,8 @@ The Raspberry Pi 3B+ is listening decisions taken in the blockchain, and after g
 
 ![Cloud Pathway](https://github.com/l-silvestre/fikalab/blob/master/Images/Cloud/image8.png)
 
-```
 **Nota:** Detalhes de como foi enviado o MTQQ do Raspberry Pi 3B+ estático e como instalado o Greengrass no GoPiGo de forma ao mesmo se tornar um dispositivo de IoT e conseguir correr funções localmente podem ser encontrados na [pasta dos Raspberry Pi 3B+](http://www.dropwizard.io/1.0.2/docs/) neste projeto.
-```
+
 
 
 
