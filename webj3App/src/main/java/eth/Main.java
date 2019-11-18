@@ -279,6 +279,9 @@ public class Main {
         }
     }
 
+    private int sending=0;
+
+
     public void websockets(){
         WebSocketService webSocketService = new WebSocketService("wss://kovan.infura.io/ws/v3/b321b2057ccc412da1a6cfc01c158880", true);
         try {
@@ -288,14 +291,24 @@ public class Main {
             smartContract = Contract_sol_test.load(contractAddr,web3j,credentials, DefaultGasProvider.GAS_PRICE,DefaultGasProvider.GAS_LIMIT);
 
             smartContract.movedEventFlowable(DefaultBlockParameterName.LATEST,DefaultBlockParameterName.LATEST).subscribe(log ->{
-                        String name = log.name;
-                        String dir = log.dir;
-                        String sender = log.sender;
-                        String addr = log.log.getAddress();
-                        System.out.println(name+", "+dir+", "+sender+", "+addr);
-                        executeScript(name);
+                String name = log.name;
+                String dir = log.dir;
+                String sender = log.sender;
+                String addr = log.log.getAddress();
+                System.out.println(name+", "+dir+", "+sender+", "+addr);
+                
+                synchronized(sending){
+                    if(sending==1){
+                        Thread.sleep(1000);
                     }
-                    ,error ->System.err.print("erro: "+error));
+                    sending=1;
+                }
+                executeScript(name);
+                synchronized(sending){
+                    sending=0;
+                }
+            }
+            ,error ->System.err.print("erro: "+error));
 
         }catch(Exception e){
             System.err.print("erro socket: "+e);
