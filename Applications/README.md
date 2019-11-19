@@ -1,18 +1,22 @@
-##Applications
-						PRE-REQUESITES
--maven	#https://maven.apache.org/install.html
-	#https://kauri.io/article/b9eb647c47a546bc95693acc0be72546/connecting-to-an-ethereum-client-with-java-eclipse-and-web3j
+# Applications
 
--web3j	#https://docs.web3j.io/quickstart/
-	#https://docs.web3j.io/getting_started/
+### PRE-REQUISITES
 
--Infura	#https://infura.io/
-	#ENDPOINTS:
-	-Main:		https://mainnet.infura.io/v3/b321b2057ccc412da1a6cfc01c158880
-	-Ropsten:	https://ropsten.infura.io/v3/b321b2057ccc412da1a6cfc01c158880
-	-Kovan:		https://kovan.infura.io/v3/b321b2057ccc412da1a6cfc01c158880
-	-Rinkeby:	https://rinkeby.infura.io/v3/b321b2057ccc412da1a6cfc01c158880
-	-websocket:	wss://"replace-with-network".infura.io/ws/v3/b321b2057ccc412da1a6cfc01c158880
+* **maven:** https://maven.apache.org/install.html
+	https://kauri.io/article/b9eb647c47a546bc95693acc0be72546/connecting-to-an-ethereum-client-with-java-eclipse-and-web3j
+
+* **web3j:** https://docs.web3j.io/quickstart/
+	https://docs.web3j.io/getting_started/
+
+* **Infura:** https://infura.io/
+
+## ENDPOINTS:
+
+* **Main:** https://mainnet.infura.io/v3/b321b2057ccc412da1a6cfc01c158880
+* **Ropsten:** https://ropsten.infura.io/v3/b321b2057ccc412da1a6cfc01c158880
+* **Kovan:** https://kovan.infura.io/v3/b321b2057ccc412da1a6cfc01c158880
+* **Rinkeby:** https://rinkeby.infura.io/v3/b321b2057ccc412da1a6cfc01c158880
+* **websocket:** wss://"replace-with-network".infura.io/ws/v3/b321b2057ccc412da1a6cfc01c158880
 
 RECOMMENDED:
 	-Android Studio: https://developer.android.com/studio/install
