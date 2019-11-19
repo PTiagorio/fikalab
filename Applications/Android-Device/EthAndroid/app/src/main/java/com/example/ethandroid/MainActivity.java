@@ -91,7 +91,7 @@ public class MainActivity extends Activity  {
         //con.delMetaMask();
         Log.d("log","b: "+con.getBalance());
         if(con.getBalance()<=0.0){
-            con.requestEther();
+            new RequestThread().execute();
         }
         hearts = findViewById(R.id.hearts);
         heart[0] = findViewById(R.id.heart1);
@@ -109,6 +109,7 @@ public class MainActivity extends Activity  {
         t.start();*/
 
         load();
+
     }
 
     /*@Override
@@ -133,10 +134,10 @@ public class MainActivity extends Activity  {
         try{
              con = new ConnectEth(this);
             if (con.connect()) {
-                Toast.makeText(this, "Connected ", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Connnected ", Toast.LENGTH_LONG).show();
             }
         }catch(Exception e){
-            Toast.makeText(this,"erro connect, "+e,Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"Error connecting to Ethereum node, "+e,Toast.LENGTH_LONG).show();
         }
     }
 
@@ -147,7 +148,7 @@ public class MainActivity extends Activity  {
             Log.d("log","addr: "+con.getwAddr());
         }catch(Exception e){
             Log.d("log","erro: "+e);
-            Toast.makeText(this,"erro wallet, "+e,Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"Error loading wallet, "+e,Toast.LENGTH_LONG).show();
         }
 
     }
@@ -186,7 +187,7 @@ public class MainActivity extends Activity  {
             String t = con.loadContract();
             Toast.makeText(this, t, Toast.LENGTH_LONG).show();
         }catch(Exception e){
-            Toast.makeText(this,"erro connect, "+e,Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"Error loadingSmart Contract, "+e,Toast.LENGTH_LONG).show();
         }
     }
 
@@ -250,7 +251,7 @@ public class MainActivity extends Activity  {
             if(data.hasExtra("request"))
             {
                 if(con.getBalance()<1.1) {
-                    con.requestEther();
+                    new RequestThread().execute();
                     Toast.makeText(this,"requested 0.1 ether",Toast.LENGTH_SHORT).show();
                 }
                 else{
@@ -260,21 +261,21 @@ public class MainActivity extends Activity  {
         }
     }
     public void onUp(View view){
-        Toast.makeText(this, "Direção: frente, Username: "+con.getUsername(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Move forward, Username: "+con.getUsername(), Toast.LENGTH_SHORT).show();
         //updateHearts();
         callAction("cima");
     }
 
     public void onDown(View view){
-        Toast.makeText(this, "Direção: marcha-atrás, Username: "+con.getUsername(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Move backward, Username: "+con.getUsername(), Toast.LENGTH_SHORT).show();
         callAction("baixo");
     }
     public void onRight(View view){
-        Toast.makeText(this, "Direção: direita, Username: "+con.getUsername(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Turn right, Username: "+con.getUsername(), Toast.LENGTH_SHORT).show();
         callAction("direita");
     }
     public void onLetf(View view){
-        Toast.makeText(this, "Direção: esquerda, Username: "+con.getUsername(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Turn left, Username: "+con.getUsername(), Toast.LENGTH_SHORT).show();
         callAction("esquerda");
     }
 
@@ -283,7 +284,7 @@ public class MainActivity extends Activity  {
         try {
             new ActionThread().execute(dir);
         }catch(Exception e){
-            Toast.makeText(this,"erro na thread: "+e,Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Error ActionThread: "+e,Toast.LENGTH_SHORT).show();
         }
     }
     /*
@@ -323,6 +324,23 @@ public class MainActivity extends Activity  {
         @Override
         protected void onPostExecute(String s) {
             Toast.makeText(getApplicationContext(),"Transaction hash: "+s, Toast.LENGTH_LONG).show();
+            super.onPostExecute(s);
+        }
+    }
+
+    public class RequestThread extends AsyncTask<Void,String,String>{
+        @Override
+        protected String doInBackground(Void... voids) {
+            String str;
+            Log.d("log","started");
+            str = con.requestEther();
+            Log.d("log","ended...");
+            return str;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            Toast.makeText(getApplicationContext(),"transaction hash: "+s,Toast.LENGTH_SHORT).show();
             super.onPostExecute(s);
         }
     }

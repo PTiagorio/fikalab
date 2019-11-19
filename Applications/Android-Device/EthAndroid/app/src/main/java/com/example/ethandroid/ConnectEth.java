@@ -198,7 +198,7 @@ public class ConnectEth implements Serializable {
         }
     }
 
-    public void requestEther(){
+    public String requestEther(){
 
         //String content="{\"address\":\"d68e1912f210296e2b76210d258d4149d20c0f66\",\"id\":\"212abf0f-bb2d-4422-a20c-1d14501b3d88\",\"version\":3,\"crypto\":{\"cipher\":\"aes-128-ctr\",\"ciphertext\":\"5cde8f8fb92eec6e5c94132fc259bec90a0605bb189a5ca7c6b8b46f426831ce\",\"cipherparams\":{\"iv\":\"0ed53ca05898f1e2e653793ca06fb97c\"},\"kdf\":\"scrypt\",\"kdfparams\":{\"dklen\":32,\"n\":262144,\"p\":1,\"r\":8,\"salt\":\"b053a52c860be2406b2d86c4f70b03f6091888e514f0a9e84fda6609053ef49d\"},\"mac\":\"7da3ba406c1b57eabc0795648ecec8340d6da4bff7dc359cb6542421802d7788\"}}";
         try {
@@ -207,28 +207,18 @@ public class ConnectEth implements Serializable {
             //Credentials metaCredentials =WalletUtils.loadJsonCredentials("pwd", content);
             //WalletUtils.loadCredentials()
             Credentials metaCredentials = importW();
+            TransactionReceipt transactionReceipt = Transfer.sendFunds(
+                    web3, metaCredentials, wAddr,
+                    BigDecimal.valueOf(0.1), Convert.Unit.ETHER)
+                    .send();
+            Log.d("log", "request well: " + transactionReceipt.getStatus());
 
-            Thread t = new Thread(){
-                @Override
-                public void run(){
-                    try {
-                        TransactionReceipt transactionReceipt = Transfer.sendFunds(
-                                web3, metaCredentials, wAddr,
-                                BigDecimal.valueOf(0.1), Convert.Unit.ETHER)
-                                .send();
-                        Log.d("log", "request well: " + transactionReceipt.getStatus());
-                    }catch(Exception e){
-                        Log.d("log","erro na thread: "+e);
-                    }
-                }
-            };
-            t.start();
-            t.join();
 
             delMetaMask();
-
+            return transactionReceipt.getTransactionHash();
         }catch(Exception e){
             Log.d("log","erro no request: "+e);
+            return "Request error: "+e;
         }
         //web3.ethSendTransaction(transaction).send();
     }

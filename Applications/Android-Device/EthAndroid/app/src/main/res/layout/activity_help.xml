@@ -29,52 +29,48 @@
             android:layout_marginHorizontal="5dp"
             android:textColor="#000000"
             android:background="#FFFFFF"
-            android:layout_weight=".4"
+            android:layout_weight=".1"
             android:autoSizeTextType="uniform"
             ></TextView>
+
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
             android:id="@+id/texto2"
-            android:fontFamily="sans-serif"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginHorizontal="5dp"
-            android:textColor="#000000"
-            android:background="#FFFFFF"
-            android:layout_weight=".4"
-            android:autoSizeMaxTextSize="10dp"
-            android:autoSizeMinTextSize="5dp"
+            android:textAlignment="gravity"
             android:autoSizeTextType="uniform"
-            ></TextView>
+            android:background="#FFFFFF"
+            android:fontFamily="sans-serif"
+            android:textColor="#000000"></TextView>
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:id="@+id/texto3"
             android:fontFamily="sans-serif"
             android:layout_marginHorizontal="5dp"
             android:textColor="#000000"
             android:background="#FFFFFF"
-            android:layout_weight=".4"
-            android:autoSizeMaxTextSize="10dp"
-            android:autoSizeMinTextSize="5dp"
+            android:textAlignment="gravity"
             android:autoSizeTextType="uniform"
             ></TextView>
 
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.1">
+            android:layout_height="wrap_content"
+            android:layout_weight="0.01"
+            android:background="#FFFFFF">
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="0.5"
+                android:textAlignment="gravity"
                 android:textColor="#000000"
                 android:text="Username: "
-                android:autoSizeMaxTextSize="10dp"
-                android:autoSizeMinTextSize="5dp"
                 android:autoSizeTextType="uniform"
                 android:fontFamily="sans-serif"
-                android:background="#FFFFFF">
+                android:background="#FFFFFF"
+                android:layout_weight="0.5">
             </TextView>
             <!--<EditView
                 android:id="@+id/usernameEV"
@@ -95,8 +91,7 @@
                 android:layout_height="match_parent"
                 android:textColor="#000000"
                 android:layout_weight="0.5"
-                android:autoSizeMaxTextSize="10dp"
-                android:autoSizeMinTextSize="5dp"
+                android:textAlignment="gravity"
                 android:autoSizeTextType="uniform"
                 android:fontFamily="sans-serif"
                 android:background="#FFFFFF"
@@ -104,6 +99,7 @@
                 android:inputType="text">
             </EditText>
         </LinearLayout>
+        android:background="#FFFFFF"
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
