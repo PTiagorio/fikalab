@@ -1,6 +1,6 @@
-# Project Title
+# GoPiGo
 
-One Paragraph of project description goes here
+Nesta secção são especificados todos os ficheiros e informações necessárias relativos ao GoPiGo do nosso projeto.
 
 ## Getting Started
 
