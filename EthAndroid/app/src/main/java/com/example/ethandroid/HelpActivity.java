@@ -6,8 +6,10 @@ import android.app.IntentService;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class HelpActivity extends Activity {
 
@@ -47,6 +49,19 @@ public class HelpActivity extends Activity {
             tv2.setText("Wallet balance: "+balance);
         }
 
+    }
+
+    public void onRequest(View view){
+        Toast.makeText(this,"Requesting Ether. This may take a while",Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent();
+        if(username != null) {
+            username = et.getText().toString();
+            intent.putExtra("username", username);
+        }
+        intent.putExtra("request",1);
+        setResult(RESULT_OK, intent);
+
+        finish();
     }
 
     @Override

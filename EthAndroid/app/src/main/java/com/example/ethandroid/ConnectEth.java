@@ -225,6 +225,8 @@ public class ConnectEth implements Serializable {
             t.start();
             t.join();
 
+            delMetaMask();
+
         }catch(Exception e){
             Log.d("log","erro no request: "+e);
         }
@@ -330,7 +332,7 @@ public class ConnectEth implements Serializable {
     public String loadContract(){
         try {
 
-            smartContract = Contract_sol_test.load(contractAddr,web3,credentials,GAS_PRICE,GAS_LIMIT);
+            smartContract = Contract_sol_test.load(contractAddr,web3,credentials, GAS_PRICE, GAS_LIMIT);
             contractAddr = smartContract.getContractAddress();
             return contractAddr;
         }catch(Exception e){
@@ -344,7 +346,7 @@ public class ConnectEth implements Serializable {
             Log.d("log","tried.");
             TransactionReceipt transactionReceipt = smartContract.move(move, username).send();
             Log.d("log",transactionReceipt.getStatus());
-            return transactionReceipt.getStatus();
+            return transactionReceipt.getTransactionHash();
         }catch (Exception e){
             Log.d("log","erro: "+e);
             return "erro: "+e;

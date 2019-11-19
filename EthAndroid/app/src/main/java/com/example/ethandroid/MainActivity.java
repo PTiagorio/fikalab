@@ -1,5 +1,6 @@
 package com.example.ethandroid;
 
+import androidx.annotation.MainThread;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -10,6 +11,9 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -129,7 +133,7 @@ public class MainActivity extends Activity  {
         try{
              con = new ConnectEth(this);
             if (con.connect()) {
-            //    Toast.makeText(this, "Connected ", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Connected ", Toast.LENGTH_LONG).show();
             }
         }catch(Exception e){
             Toast.makeText(this,"erro connect, "+e,Toast.LENGTH_LONG).show();
@@ -139,7 +143,7 @@ public class MainActivity extends Activity  {
     public void wallet(){
         try{
             con.wallet("pwd");
-            Toast.makeText(this, "wallet created: "+con.getwAddr(), Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "wallet imported: "+con.getwAddr(), Toast.LENGTH_SHORT).show();
             Log.d("log","addr: "+con.getwAddr());
         }catch(Exception e){
             Log.d("log","erro: "+e);
@@ -230,7 +234,7 @@ public class MainActivity extends Activity  {
         if (con != null){
             intent.putExtra("wAddr", con.getwAddr());
             intent.putExtra("username", con.getUsername());
-            intent.putExtra("balance",con.getBalance().toString());
+            intent.putExtra("balance",con.getBalance().toString()                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       );
             //intent.putExtra("connectEth", con);
         }
         //intent.putExtra("wAddr","invalid wallet address");
@@ -245,7 +249,7 @@ public class MainActivity extends Activity  {
             }
             if(data.hasExtra("request"))
             {
-                if(con.getBalance()<1) {
+                if(con.getBalance()<1.1) {
                     con.requestEther();
                     Toast.makeText(this,"requested 0.1 ether",Toast.LENGTH_SHORT).show();
                 }
@@ -256,28 +260,28 @@ public class MainActivity extends Activity  {
         }
     }
     public void onUp(View view){
-        //Toast.makeText(this, "cima, "+name, Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Direção: frente, Username: "+name, Toast.LENGTH_SHORT).show();
         //updateHearts();
         callAction("cima");
     }
 
     public void onDown(View view){
+        Toast.makeText(this, "Direção: marcha-atrás, Username: "+name, Toast.LENGTH_SHORT).show();
         callAction("baixo");
     }
     public void onRight(View view){
+        Toast.makeText(this, "Direção: direita, Username: "+name, Toast.LENGTH_SHORT).show();
         callAction("direita");
     }
     public void onLetf(View view){
+        Toast.makeText(this, "Direção: esquerda, Username: "+name, Toast.LENGTH_SHORT).show();
         callAction("esquerda");
     }
 
 
     public void callAction(String dir){
         try {
-            MyThread t = new MyThread(dir);
-            t.start();
-            Toast.makeText(this, t.info(), Toast.LENGTH_SHORT).show();
-            t.join();
+            new ActionThread().execute(dir);
         }catch(Exception e){
             Toast.makeText(this,"erro na thread: "+e,Toast.LENGTH_SHORT).show();
         }
@@ -306,21 +310,20 @@ public class MainActivity extends Activity  {
         Security.insertProviderAt(new BouncyCastleProvider(), 1);
     }
 
-    public class MyThread extends Thread{
-        String str;
-        String dir;
-        public MyThread(String dir){
-            this.dir=dir;
-        }
+    public class ActionThread extends AsyncTask<String,Void,String>{
         @Override
-        public void run(){
+        protected String doInBackground(String... strings) {
+            String str;
             Log.d("log","started");
-            str=con.Action(this.dir,name);
+            str=con.Action(strings[0],name);
             Log.d("log","ended...");
+            return str;
         }
 
-        public String info(){
-            return str;
+        @Override
+        protected void onPostExecute(String s) {
+            Toast.makeText(getApplicationContext(),"Transaction hash: "+s, Toast.LENGTH_LONG).show();
+            super.onPostExecute(s);
         }
     }
 }

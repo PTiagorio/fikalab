@@ -205,8 +205,8 @@
                 android:layout_marginTop="25dp"
                 android:layout_gravity="center_horizontal|top"
                 android:background="@drawable/frente"
-                android:onClick="onUp"
-                ></ImageButton>
+                android:onClick="onUp">
+            </ImageButton>
 
             <ImageButton
                 android:id="@+id/ibEsquerda"
@@ -215,7 +215,9 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center_vertical|left"
-                android:background="@drawable/esquerda"></ImageButton>
+                android:background="@drawable/esquerda"
+                android:onClick="onLetf">
+            </ImageButton>
 
             <ImageButton
                 android:id="@+id/ibDireita"
@@ -223,7 +225,9 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center_vertical|right"
-                android:background="@drawable/direita"></ImageButton>
+                android:background="@drawable/direita"
+                android:onClick="onRight">
+            </ImageButton>
 
             <ImageButton
                 android:onClick="onDown"
@@ -232,7 +236,8 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center_horizontal|bottom"
-                android:background="@drawable/tras"></ImageButton>
+                android:background="@drawable/tras">
+            </ImageButton>
 
 
         </FrameLayout>
