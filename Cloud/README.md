@@ -32,8 +32,7 @@ The *RaspEstatico* is waiting for an event to be triggered by the blockchain net
 
 **Nota:** Detalhes de como foi enviado o MTQQ do Raspberry Pi 3B+ estático e como instalado o Greengrass no GoPiGo de forma ao mesmo se tornar um dispositivo de IoT e conseguir correr funções localmente podem ser encontrados na [pasta dos Raspberry Pi 3B+](http://www.dropwizard.io/1.0.2/docs/) deste projeto.
 
-**Note:** Details of how *RaspEstatico* MTQQ was sent and how **IoT Greengrass** was installed on GoPiGo in order to make it an IoT device and perform tasks locally can be found in the [*RaspEstatico* folder] (http: // www.dropwizard.io/1.0.2/docs/) of this project.
-
+**Note:** Details of how *RaspEstatico* MTQQ was sent  can be found in the [*RaspEstatico* folder]: (https://github.com/l-silvestre/fikalab/tree/master/Cloud/RaspEstatico). Details of how **IoT Greengrass** was installed on GoPiGo in order to make it an IoT device and perform tasks locally can be found in the [Gopigo folder]: (https://github.com/lsilvestre/fikalab/tree/master/Cloud/GoPiGo)
 
 ### Break down into end to end tests
 
