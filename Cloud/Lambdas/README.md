@@ -13,6 +13,6 @@ All Lambdas are built with an existing function that gives you access to all exi
 
 ![All Existing Features in Lambda](https://github.com/l-silvestre/fikalab/blob/master/Cloud/Images/image7.png)
 
-**Note**: Function handlers variate, so be careful about this. An example of a handler is shown below through **lambda.lambda_handler**:
+**Note**: Function handlers variate, so be careful about this. An example of a handler is shown below through "**lambda.lambda_handler**":
 
 ![Function Handler Example](https://github.com/l-silvestre/fikalab/blob/master/Cloud/Images/image8.png)
