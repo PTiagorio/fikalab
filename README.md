@@ -20,21 +20,22 @@ For the first entity, smartphones were identified, as it would be an easy way to
 All that remained was to identify how the technologies would be used together. After several brainstorming sessions and several iterations, the group came up with a system architecture:
 
 ![General Architecture](https://github.com/l-silvestre/fikalab/blob/master/Cloud/Images/image9.png)
-Figura 1 - Mockup da Arquitetura do Sistema.
+System Architecture Mockup.
 
-Neste mockup estão presentes as entidades identificadas anteriormente. Criando uma ponte entre elas e este mockup: as entidades controladoras são os telemóveis; a entidade de comunicação é o Raspberry Pi, o qual é habitualmente denominado de *RaspEstatico* no nosso projeto; e finalmente o GoPiGo que é a entidade controlada.
+In this mockup the entities identified earlier are present. Bridging the gap between them and this mockup: the controlling entities are the mobile phones; The communication entity is the Raspberry Pi, which is commonly referred to as *RaspEstatico* in our project; and finally the GoPiGo which is the controlled entity.
 
-A blockchain está presente entre os telemóveis e o RaspEstático. A Blockchain irá permitir que todos os comandos realizados pelos telemóveis sejam conhecidos por todos os nós da rede e que os mesmos tenham características de imutabilidade e auditabilidade. A cloud / IoT serve de ponte entre o Raspberry e o GoPiGo. Será usado software para que o GoPiGo esteja subscrito à cloud, o qual consegue fazer com que todos os dispositivos subscritos se movam quando o RaspEstático comunica um comando vindo dos telemóveis. No nosso caso só existe um GoPiGo, mas a escalabildade é uma das principais características deste sistema, graças ao uso de IoT através da Cloud. 
+The blockchain is present between mobile phones and  the *RaspEstático*. Blockchain will allow all commands made by mobile phones to be known to all nodes of the network and to have immutability and auditability characteristics. The cloud / IoT serves as a bridge between the *RaspEstatico* and GoPiGo. Software will be used to have GoPiGo subscribed to the cloud, which can make all subscribed devices move when *RaspEstatico* communicates a command. In our case there is only one GoPiGo, but scalability is one of the main features of this system, because of the use of IoT through the Cloud.
 
-Os aspetos técnicos das tecnologias utilizadas serão explicados nos próximos capítulos, mas no geral a comunicação entre nodos do sistema pode ser sumarizada por:
-1. Comando dado por um utilizador do telemóvel para o carro se mexer (toque dum botão);
-1. RaspEstático está à escuta de uma evento despoletado pela Blockchain;
-1. RaspEstático comunica à cloud o comando a realizar;
-1. Cloud comunica ao GoPiGo o comando a realizar;
+The technical aspects of the technologies used will be explained in the read-me files of other folders, but in general the communication between system nodes can be summarized by:
+1. A command given by a mobile phone user to move the car (touch of a button);
+1. *RaspEstatico* is listening to an event triggered by Blockchain;
+1. *RaspEstatico* communicates the command to the cloud ;
+1. Cloud tells GoPiGo the command to perform;
 
-### GLOBAL PRE-REQUISITES
-## npm Install
+## GLOBAL PRE-REQUISITES
+### npm Installation
 Windows:
+
 [npm](https://www.npmjs.com/get-npm)  
 
 Ubuntu:
