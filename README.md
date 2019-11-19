@@ -22,8 +22,11 @@ All that remained was to identify how the technologies would be used together. A
 ![General Architecture](https://github.com/l-silvestre/fikalab/blob/master/Cloud/Images/image9.png)
 
 ### GLOBAL PRE-REQUISITES:
+npm Install
+Windows:
+[npm](https://www.npmjs.com/get-npm)  
 
-[npm](https://www.npmjs.com/get-npm) OR (ubuntu)
+Ubuntu:
 
 ```
 $ sudo apt-get update
