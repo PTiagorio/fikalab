@@ -2,10 +2,11 @@
 
 In this folder the project presentations are located. 
 
+## Items
+
 ### First Presentation
 This [presentation](https://github.com/l-silvestre/fikalab/blob/master/Presentations/First%20Presentation.pptx) was the first formal presentation made for this project. 
 
-## Items
 ### Demo Paper 
 This [presentation](https://github.com/l-silvestre/fikalab/blob/master/Presentations/Demo%202%20Pages.pdf) is a 2 page sheet intended for the demonstration made at Fikalab 2019 ISEC Challenge.
 
