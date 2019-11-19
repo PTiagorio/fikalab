@@ -41,7 +41,7 @@ To implement our project we also needed to define a [Smart Contract](https://git
 * When the event is caught the Raspberry Application will execute a python script.
 
 More Info on the [Applications](https://github.com/l-silvestre/fikalab/tree/master/Applications)
-##Directory Structure
+## Directory Structure
 
 * eth-net	# Root Directory of an implementation of a private ethereum local chain (discontinued)
 * smartContract	# Directory containing the SmartContract .sol files, as well as smartContract .abi .bin and java web3j wrappers as well as scripts to easily generate said files 
