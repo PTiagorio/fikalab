@@ -31,4 +31,9 @@ In conjunction with **IoT Greengrass**, this service is used to run local code o
 ![Cloud Pathway](https://github.com/l-silvestre/fikalab/blob/master/Cloud/Images/image10.png)
 ![Cloud Pathway](https://github.com/l-silvestre/fikalab/blob/master/Cloud/Images/image2.png)
 
+![Cloud Pathway](https://github.com/l-silvestre/fikalab/blob/master/Cloud/Images/image3.png)
+![Cloud Pathway](https://github.com/l-silvestre/fikalab/blob/master/Cloud/Images/image4.png)
+![Cloud Pathway](https://github.com/l-silvestre/fikalab/blob/master/Cloud/Images/image5.png)
+![Cloud Pathway](https://github.com/l-silvestre/fikalab/blob/master/Cloud/Images/image6.png)
+
 **NOTE:** Details of how *RaspEstatico* MTQQ is sent can be found in the [*RaspEstatico* folder](https://github.com/l-silvestre/fikalab/tree/master/Cloud/RaspEstatico). Details of how **IoT Greengrass** was installed on GoPiGo in order to make it an IoT device and perform tasks locally can be found in the [GoPiGo folder](https://github.com/lsilvestre/fikalab/tree/master/Cloud/GoPiGo).
