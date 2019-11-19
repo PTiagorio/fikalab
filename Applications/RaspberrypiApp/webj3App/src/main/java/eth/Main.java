@@ -88,12 +88,12 @@ public class Main {
 
     public String executeScript(String dir){
         String s = "python /home/pi/Documentos/my_rpi/"+dir+".py";    //"scipt+cima; script+baixo; ..."
-        System.out.print(s);
+        //System.out.print(s);
         try {
 
             //Runtime.getRuntime().exec(path);
             Process p = Runtime.getRuntime().exec(s);
-            System.out.print("done well");
+            //System.out.print("done well");
             return "works";
         }catch(Exception e){
             System.err.print(e);
@@ -280,7 +280,7 @@ public class Main {
     }
 
     private int sending=0;
-
+    private String lastAddr="empty";
 
     public void websockets(){
         WebSocketService webSocketService = new WebSocketService("wss://kovan.infura.io/ws/v3/b321b2057ccc412da1a6cfc01c158880", true);
@@ -290,23 +290,34 @@ public class Main {
 
             smartContract = Contract_sol_test.load(contractAddr,web3j,credentials, DefaultGasProvider.GAS_PRICE,DefaultGasProvider.GAS_LIMIT);
 
-            smartContract.movedEventFlowable(DefaultBlockParameterName.LATEST,DefaultBlockParameterName.LATEST).subscribe(log ->{
-                String name = log.name;
-                String dir = log.dir;
-                String sender = log.sender;
-                String addr = log.log.getAddress();
-                /*synchronized((Object)sending){
-                    if(sending==1){
-                        Thread.sleep(3000);
+            smartContract.movedEventFlowable(DefaultBlockParameterName.LATEST,DefaultBlockParameterName.LATEST).subscribe(log -> {
+                        String name = log.name;
+                        String dir = log.dir;
+                        String sender = log.sender;
+                        String addr = log.log.getAddress();
+
+                        if (lastAddr != addr) {
+                            synchronized (lastAddr) {
+                                Thread.sleep(2000);
+                                lastAddr = addr;
+                            }
+                        }
+                        else {
+                            /*synchronized ((Object) sending){
+                                if (sending == 1) {
+                                    Thread.sleep(3000);
+                                }
+                                sending = 1;
+                            }*/
+
+
+                            /*synchronized ((Object) sending) {
+                                sending = 0;
+                            }*/
+                        }
+                        System.out.println(name + ", " + dir + ", " + sender + ", " + addr);
+                        executeScript(name);
                     }
-                    sending=1;
-                }*/
-		System.out.println(name+", "+dir+", "+sender+", "+addr);
-                executeScript(name);
-                /*synchronized((Object)sending){
-                    sending=0;
-                }*/
-            }
             ,error ->System.err.print("erro: "+error));
 
         }catch(Exception e){
