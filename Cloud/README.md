@@ -40,7 +40,7 @@ In conjunction with **IoT Greengrass**, this service is used to run local code o
 
 ## Folder Structure
 
+* **GoPiGo** - directory that has more information and files about GoPiGo
 * **Images** - in this directory we put all the images used to explain the Cloud architecture
 * **Lambda** - directory where we put additional information about the project Lambdas and their codes
 * **RaspEstatico** - in this directory where we talked more about raspEstatico and insert its code from the Cloud
-* **GoPiGo** - directory that has more information and files about GoPiGo
