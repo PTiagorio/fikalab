@@ -38,13 +38,13 @@ In this Project we chose Ethereum to take advantage of its Smart Contracts. For 
 To implement our project we also needed to define a [Smart Contract](https://github.com/l-silvestre/fikalab/tree/master/Blockchain/smartContract) that could deal with our needs.
 
 Blockchain Architecture:
-	-Mobile Devices and Raspberry use web3j and Infura to connect to Ethereum node on the kovan test network
-	-The Smart Contract is loaded to the Blockchain and his address is known to the Apps
-	-The Apps load their wallets or create them if none exist and load the Smart Contract to their context
-	-The Mobile device can now Interact with the Smart Contract to move the GoPiGo
-	-A call to the move function in the Smart Contract will throw an event
-	-The Raspberry Application will subscribe to the specific event defined in our Smart Contract
-	-When the event is caught the Raspberry Application will execute a python script.
+	* Mobile Devices and Raspberry use web3j and Infura to connect to Ethereum node on the kovan test network
+	* The Smart Contract is loaded to the Blockchain and his address is known to the Apps
+	* The Apps load their wallets or create them if none exist and load the Smart Contract to their context
+	* The Mobile device can now Interact with the Smart Contract to move the GoPiGo
+	* A call to the move function in the Smart Contract will throw an event
+	* The Raspberry Application will subscribe to the specific event defined in our Smart Contract
+	* When the event is caught the Raspberry Application will execute a python script.
 
 More Info on the [Blockchain](https://github.com/l-silvestre/fikalab/tree/master/Blockchain) and in the [Applications](https://github.com/l-silvestre/fikalab/tree/master/Applications)
 
