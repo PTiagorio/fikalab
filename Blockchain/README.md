@@ -1,4 +1,4 @@
-#Blockchain Introduction
+# Blockchain Introduction
 Before Introducing the term blockchain, it is necessary to understand P2P (Peer-to-Peer) networks, one of the concepts behind blockchain.
 P2P networks are networks designed in a way that the data is spread among every participant of the network, denominated Peer.
 This technology was first released in 1999, with the file sharing platform napster, this platform was the first decentralized network, where peers shared data amongst themselves instead of having a central server.
@@ -18,7 +18,7 @@ The great advantage of Smart Contracts is the possibility of being programmable 
 
 The emergence of smart contracts has introduced the possibility to create what is known as DApps. DApps are applications that run on the Blockchain network and do not need any regulatory authority. An example of a decentralized application is Bitcoin, as well as any other virtual currency platform. However, the major difference from a decentralized application with Smart Contracts is that virtual currency platforms work only with transactions, whereas a decentralized application using Smart Contracts can include much more information in its blocks than a simple transaction and other information and interactions can be programmed.
 
-##PRE-REQUESITES
+## PRE-REQUESITES
 Solc	#npm install -g solc
 
 web3j	#https://docs.web3j.io/quickstart/
@@ -31,7 +31,7 @@ In this Project we chose Ethereum to take advantage of its Smart Contracts. For 
 [Infura](https://infura.io/) is a platform that provides online nodes on the ethereum blockchain by simply connecting to an http endpoint or a websocket endpoint. 
 To implement our project we also needed to define a [Smart Contract](https://github.com/l-silvestre/fikalab/tree/master/Blockchain/smartContract) that could deal with our needs.
 
-###Blockchain Architecture:
+### Blockchain Architecture:
 * Mobile Devices and Raspberry use web3j and Infura to connect to Ethereum node on the kovan test network
 * The Smart Contract is loaded to the Blockchain and his address is known to the Apps
 * The Apps load their wallets or create them if none exist and load the Smart Contract to their context
@@ -52,7 +52,7 @@ More Info on the [Applications](https://github.com/l-silvestre/fikalab/tree/mast
 **Note**
 This directory is currently inactive due to the use of public Ethereum test networks, except for the smartContract directory which contains the current Smart Contract being used in out Project
 
-###eth-net
+### eth-net
 In this folder is an inactive implementation of a private ethereum chain using geth.
 
 -db/		#Directory to contain the blockchain data
@@ -63,7 +63,7 @@ In this folder is an inactive implementation of a private ethereum chain using g
 -startPeer.sh	#Script to start a private chain node
 
 
-###smartContract
+### smartContract
 * SmartContract/		#folder in which the javaWrapper contracts are stored (Smart Contract implemented in Java through web3j)
 * compile.sh			#Script created to compile a contract, receives the name of the file as argument (e.g: ./compile.sh name)
 * Contract.sol			#Smart Contract written in Solidity #Current contract being used
@@ -79,7 +79,7 @@ In this folder is an inactive implementation of a private ethereum chain using g
 * ContractV3.sol		#**SmartContractV3 not being used**
 * genJava.sh			#Script to generate the SmartContract in Java language to use in Applications; This Script receives the name of the .abi and .bin files as argument **note: .abi and .bin file names must be the same**     					#(e.g ./genJava Contract_sol_test)
 
-###wallets
+### wallets
 * metamaskWallet.json									# wallet for Ethereum Kovan test networkpassword: pwd
 * UTC--2019-10-30T17-35-04.311000000Z--12cf0548932152c2705853e5f3f168eddb95458f.json	# 
 * UTC--2019-10-31T16-45-13.355000000Z--c431b1792b8d0d7d5c898e40bfe95f78fb40df78.json	#
