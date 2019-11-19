@@ -7,12 +7,12 @@ The Android application is the android app that the users can download to contro
 The Java application is the app that is ran by the Raspberry and serves as a listener for Ethereum Events, more Specifically a "moved" event defined by our Smart Contract and sent to the EVM when the move function of the Smart Contract is called from the mobile device.
 
 ## Directory Structure
-* **Android-Device:** Directory that contais the android studio project of the android app and the compiled .apk
-* **RaspberrypiAp:** Directory that contains the maven project for the raspberry app as well as the compile .jar file for the app
-  * webj3App/ 		# a script to generate the .jar file and a script to run the .jar file
-  * createwebj3AppJar.sh
-  * runJar.sh
-  -web3jApp-1.0.0-SNAPSHOT-jar-with-dependencies.jar
+* **Android-Device:** Directory that contais the android studio project of the android app and the compiled ".apk"
+* **RaspberrypiAp:** Directory that contains the maven project for the raspberry app as well as the compile ".jar" file for the app
+  * **webj3App:** a script to generate the .jar file and a script to run the ".jar" file
+  * **createwebj3AppJar.sh**
+  * **runJar.sh**
+  * **web3jApp-1.0.0-SNAPSHOT-jar-with-dependencies.jar**
 
 ## Pre-Requisites
 
