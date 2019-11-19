@@ -1,16 +1,16 @@
 # Cloud
 
-Nesta secção são explicados, com os devidos detalhes técnicos, todas os serviços da Cloud utilizados no âmbito deste projeto.
+This section explains, with due technical details, all Cloud services used under this project.
 
 ## Tecnologias
 
-O grupo optou por utilizar a Cloud da **Amazon Web Services** (AWS) neste projeto, por motivos de rapidez, qualidade dos serviços e comodidade com a tecnologia. Como tal, os serviços apresentados a seguir correspondem aos serviços prestados pela **AWS**.
+The group chose to use the ** Amazon Web Services ** (AWS) Cloud for this project, because of its speed, quality of service and technology convenience. As such, the services presented below correspond to the services provided by ** AWS **.
 
 ### AWS IoT Core
 
 AWS IoT Core is a managed cloud service that lets connected devices easily and securely interact with cloud applications and other devices. AWS IoT Core can support billions of devices and trillions of messages, and can process and route those messages to AWS endpoints and to other devices reliably and securely. With AWS IoT Core, your applications can keep track of and communicate with all your devices, all the time, even when they aren’t connected.
 
-No âmbito do nosso projeto, o IoT Core foi utilizado para realizar a comunicação entre o Rasberry Pi 3B+ estático e a Cloud.
+As part of our project, IoT Core was used to communicate between the static Rasberry Pi 3B + and the Cloud.
 
 ### AWS IoT Greengrass
 
@@ -18,15 +18,19 @@ AWS IoT Greengrass é um serviço Cloud que extende outros serviços da AWS a di
 
 No contexto deste projeto o Greengrass é o que realiza a comunicação entre o Raspberry Pi 3B+ estático, serviços utilizados da Cloud e o GoPiGo.
 
+AWS IoT Greengrass is a Cloud service that extends other AWS services to devices that are connected to the IoT Greengrass Core so that those services run locally on the connected devices.
+
+In the context of this project Greengrass is responsible for the communication between the static Raspberry Pi 3B +, Cloud services used and the GoPiGo.
+
 ### AWS Lambda
 
-AWS Lambda is a service that lets run code in Cloud or in other devices when working with AWS IoT Greengrass.
+AWS Lambda is a service that lets code run in the Cloud or in other devices when working with AWS IoT Greengrass.
 
 Neste projeto este serviço foi utilizado para, juntamente com o IoT Greengrass, correr código no GoPiGo localmente.
 
 ## Cloud Pathway Explained
 
-The Raspberry Pi 3B+ is listening decisions taken in the blockchain, and after get some results it connects to the Cloud through **AWS IoT Core**, publishing an Message Queuing Telemetry Transport (MQTT) message that tells which direction is supposed to make. Then, the **AWS IoT Greengrass** subscribes that topic to the corresponding **AWS Lambda** function, that runs locally in the GoPiGo the function needed to move the same GoPiGo.
+The Raspberry Pi 3B+ is waiting for an event to be triggered by the blockchain network, when the event gets triggered, the RaspEstatico connects to the Cloud through **AWS IoT Core**, publishing a Message Queuing Telemetry Transport (MQTT) which contains the desired direction. Then, the **AWS IoT Greengrass** has a topic subscription for each direction and a corresponding **AWS Lambda** function, which runs locally in the GoPiGo to move it.
 
 ![Cloud Pathway](https://github.com/l-silvestre/fikalab/blob/master/Cloud/Images/image2.png)
 
