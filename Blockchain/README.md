@@ -27,21 +27,6 @@ The great advantage of Smart Contracts is the possibility of being programmable 
 
 The emergence of smart contracts has introduced the possibility to create what is known as DApps. DApps are applications that run on the Blockchain network and do not need any regulatory authority. An example of a decentralized application is Bitcoin, as well as any other virtual currency platform. However, the major difference from a decentralized application with Smart Contracts is that virtual currency platforms work only with transactions, whereas a decentralized application using Smart Contracts can include much more information in its blocks than a simple transaction and other information and interactions can be programmed.
 
-## Pre-Requesites
-Solc	
-
-```
-$ npm install -g solc
-```
-
-web3j
-* https://docs.web3j.io/quickstart/
-* https://docs.web3j.io/getting_started/
-
-geth
-* https://geth.ethereum.org/docs/install-and-build/installing-geth
-
-
 ## Project Approach
 
 In this Project we chose Ethereum to take advantage of its Smart Contracts. For a first approach and testing purposes we chose to use one of Ethereum's test networks, [Kovan](https://kovan-testnet.github.io/website/) which uses the PoA(Proof-of-Authority) consensus, so we could largely reduce the time it takes to register a transaction in the blockchain. Ethereum was also chosen because it provides a [lightweight Java API](https://docs.web3j.io/) for both Java and Android through maven.  This API allows full interaction with an ethereum node. To connect to the Kovan network we are using the Infura Platform. 
@@ -106,6 +91,20 @@ In this folder is an inactive implementation of a private ethereum chain using g
 In this folder are stored Ethereum Blockchain wallets, the metamaksWallet.json is the wallet for our main address in the Kovan test network that serves to give funds to the new created wallets amongst the devices.
 
 The remainder wallet files were created in testing of the old ehtereum private chain.
+
+## Pre-Requesites
+Solc	
+
+```
+$ npm install -g solc
+```
+
+web3j
+* https://docs.web3j.io/quickstart/
+* https://docs.web3j.io/getting_started/
+
+geth
+* https://geth.ethereum.org/docs/install-and-build/installing-geth
 
 ## References						
 * https://medium.com/coinmonks/how-to-create-your-own-private-ethereum-blockchain-137ab15989c6
