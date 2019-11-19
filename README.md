@@ -34,7 +34,7 @@ Faltava apenas identificar como seriam usadas as tecnologias em conjunto. Após 
 
 ### PRE-REQUISITES:
 
-![npm](https://www.npmjs.com/get-npm)
+[npm](https://www.npmjs.com/get-npm)
 	OR (ubuntu)
 ```
 #sudo apt-get update
