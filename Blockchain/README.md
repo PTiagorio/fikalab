@@ -49,9 +49,9 @@ To implement our project we also needed to define a [Smart Contract](https://git
 * The Mobile device can now Interact with the Smart Contract to move the GoPiGo
 * A call to the move function in the Smart Contract will throw an event
 * The Raspberry Application will subscribe to the specific event defined in our Smart Contract
-* When the event is caught the Raspberry Application will execute a python script.
+* When the event is caught the Raspberry Application will execute a python script
 
-More Info on the [Applications](https://github.com/l-silvestre/fikalab/tree/master/Applications)
+More Info on the [Applications Folder](https://github.com/l-silvestre/fikalab/tree/master/Applications).
 
 ## Directory Structure
 
