@@ -4,38 +4,35 @@ This section explains, with due technical details, all Cloud services used under
 
 ## Tecnologias
 
-The group chose to use the ** Amazon Web Services ** (AWS) Cloud for this project, because of its speed, quality of service and technology convenience. As such, the services presented below correspond to the services provided by ** AWS **.
+The group chose to use the **Amazon Web Services** (AWS) Cloud for this project, because of its speed, quality of service and technology convenience. As such, the services presented below correspond to the services provided by **AWS**.
 
 ### AWS IoT Core
 
-AWS IoT Core is a managed cloud service that lets connected devices easily and securely interact with cloud applications and other devices. AWS IoT Core can support billions of devices and trillions of messages, and can process and route those messages to AWS endpoints and to other devices reliably and securely. With AWS IoT Core, your applications can keep track of and communicate with all your devices, all the time, even when they aren’t connected.
+**AWS IoT Core** is a managed cloud service that lets connected devices easily and securely interact with cloud applications and other devices. AWS IoT Core can support billions of devices and trillions of messages, and can process and route those messages to AWS endpoints and to other devices reliably and securely. With **AWS IoT Core**, your applications can keep track of and communicate with all your devices, all the time, even when they aren’t connected.
 
-As part of our project, IoT Core was used to communicate between the static Rasberry Pi 3B + and the Cloud.
+As part of our project, **IoT Core** was used to communicate between the *RaspEstatico* and the Cloud.
 
 ### AWS IoT Greengrass
 
-AWS IoT Greengrass é um serviço Cloud que extende outros serviços da AWS a dispositivos que estejam conectados ao IoT Greengrass Core, de forma a que os mesmos serviços sejam executados localmente nesses mesmos dispositivos.
+**AWS IoT Greengrass** is a Cloud service that extends other AWS services to devices that are connected to the **IoT Greengrass Core** so that those services run locally on the connected devices.
 
-No contexto deste projeto o Greengrass é o que realiza a comunicação entre o Raspberry Pi 3B+ estático, serviços utilizados da Cloud e o GoPiGo.
-
-AWS IoT Greengrass is a Cloud service that extends other AWS services to devices that are connected to the IoT Greengrass Core so that those services run locally on the connected devices.
-
-In the context of this project Greengrass is responsible for the communication between the static Raspberry Pi 3B +, Cloud services used and the GoPiGo.
+In the context of this project Greengrass is responsible for the communication between the *RaspEstatico*, Cloud services used and the GoPiGo.
 
 ### AWS Lambda
 
 AWS Lambda is a service that lets code run in the Cloud or in other devices when working with AWS IoT Greengrass.
 
-Neste projeto este serviço foi utilizado para, juntamente com o IoT Greengrass, correr código no GoPiGo localmente.
+Neste projeto este serviço foi utilizado para, juntamente com o **IoT Greengrass**, correr código no GoPiGo localmente.
 
 ## Cloud Pathway Explained
 
-The Raspberry Pi 3B+ is waiting for an event to be triggered by the blockchain network, when the event gets triggered, the RaspEstatico connects to the Cloud through **AWS IoT Core**, publishing a Message Queuing Telemetry Transport (MQTT) which contains the desired direction. Then, the **AWS IoT Greengrass** has a topic subscription for each direction and a corresponding **AWS Lambda** function, which runs locally in the GoPiGo to move it.
+The *RaspEstatico* is waiting for an event to be triggered by the blockchain network, when the event gets triggered, the *RaspEstatico* connects to the Cloud through **AWS IoT Core**, publishing a Message Queuing Telemetry Transport (MQTT) which contains the desired direction. Then, the **AWS IoT Greengrass** has a topic subscription for each direction and a corresponding **AWS Lambda** function, which runs locally in the GoPiGo to move it.
 
 ![Cloud Pathway](https://github.com/l-silvestre/fikalab/blob/master/Cloud/Images/image2.png)
 
 **Nota:** Detalhes de como foi enviado o MTQQ do Raspberry Pi 3B+ estático e como instalado o Greengrass no GoPiGo de forma ao mesmo se tornar um dispositivo de IoT e conseguir correr funções localmente podem ser encontrados na [pasta dos Raspberry Pi 3B+](http://www.dropwizard.io/1.0.2/docs/) deste projeto.
 
+**Note:** Details of how *RaspEstatico* MTQQ was sent and how **IoT Greengrass** was installed on GoPiGo in order to make it an IoT device and perform tasks locally can be found in the [*RaspEstatico* folder] (http: // www.dropwizard.io/1.0.2/docs/) of this project.
 
 
 ### Break down into end to end tests
