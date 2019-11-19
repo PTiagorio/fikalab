@@ -22,17 +22,15 @@ In the context of this project Greengrass is responsible for the communication b
 
 AWS Lambda is a service that lets code run in the Cloud or in other devices when working with AWS IoT Greengrass.
 
-Neste projeto este serviço foi utilizado para, juntamente com o **IoT Greengrass**, correr código no GoPiGo localmente.
+In conjunction with **IoT Greengrass**, this service is used to run local code on the GoPiGo. 
 
 ## Cloud Pathway Explained
 
-The *RaspEstatico* is waiting for an event to be triggered by the blockchain network, when the event gets triggered, the *RaspEstatico* connects to the Cloud through **AWS IoT Core**, publishing a Message Queuing Telemetry Transport (MQTT) which contains the desired direction. Then, the **AWS IoT Greengrass** has a topic subscription for each direction and a corresponding **AWS Lambda** function, which runs locally in the GoPiGo to move it.
+*RaspEstatico* is waiting for an event to be triggered by the blockchain network, when that happens, the *RaspEstatico* connects to the Cloud through **AWS IoT Core**, publishing a Message Queuing Telemetry Transport (MQTT) which contains the desired direction. Then, the **AWS IoT Greengrass** has a topic subscription for each direction and a corresponding **AWS Lambda** function, which runs locally in the GoPiGo to move it.
 
 ![Cloud Pathway](https://github.com/l-silvestre/fikalab/blob/master/Cloud/Images/image2.png)
 
-**Nota:** Detalhes de como foi enviado o MTQQ do Raspberry Pi 3B+ estático e como instalado o Greengrass no GoPiGo de forma ao mesmo se tornar um dispositivo de IoT e conseguir correr funções localmente podem ser encontrados na [pasta dos Raspberry Pi 3B+](http://www.dropwizard.io/1.0.2/docs/) deste projeto.
-
-**Note:** Details of how *RaspEstatico* MTQQ was sent  can be found in the [*RaspEstatico* folder]: (https://github.com/l-silvestre/fikalab/tree/master/Cloud/RaspEstatico). Details of how **IoT Greengrass** was installed on GoPiGo in order to make it an IoT device and perform tasks locally can be found in the [Gopigo folder]: (https://github.com/lsilvestre/fikalab/tree/master/Cloud/GoPiGo)
+**Note:** Details of how *RaspEstatico* MTQQ is sent can be found in the [*RaspEstatico* folder]: (https://github.com/l-silvestre/fikalab/tree/master/Cloud/RaspEstatico). Details of how **IoT Greengrass** was installed on GoPiGo in order to make it an IoT device and perform tasks locally can be found in the [Gopigo folder]: (https://github.com/lsilvestre/fikalab/tree/master/Cloud/GoPiGo)
 
 ### Break down into end to end tests
 
