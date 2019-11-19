@@ -1,6 +1,6 @@
 # Cloud
 
-This section explains, with due technical details, all Cloud services used under this project.
+This section explains, with due technical details, all Cloud services used under this project. In the images folder
 
 ## Technologies
 
