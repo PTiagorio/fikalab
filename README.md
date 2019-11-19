@@ -1,6 +1,10 @@
 # Blockchain for IoT: a Smart Contracts Approach
 
-O nosso projeto consiste num proof-of-concept que tem por base um problema conceptualmente simples: um sistema construído para um carro-robô poder ser comandado por vários telemóveis. No entanto, a abordagem a este problema foi  feita com tecnologias de ponta, complexas, inovadoras e desafiantes do ponto de vista técnico: Internet of Things, Cloud e Blockchain. 
+This project consists of a proof-of-concept based on a conceptually simple problem: a system built for a robot car to be controlled by several mobile phones. However, the approach to this problem was made with cutting-edge, complex, innovative and technically challenging technologies: Internet of Things, Cloud and Blockchain.
+
+This project is based on the idea of bringing these two technologies together, taking advantage of the best features of both and creating a scalable system in which multiple entities control multiple devices. Reaching a system that guarantees:
+ *Auditability and immutability from Blockchain;
+ *Cloud processing delegation capability and scalability of node numbers from the Cloud and the Internet of Things.
 
 O nosso projeto baseia-se na ideia de juntar estas duas tecnologias, tirando proveito das melhores características de ambos e criar um sistema escalável em que várias entidades controlam vários dispositivos. Atingindo um sistema que garante: 
 Auditabilidade e imutabilidade, provenientes da Blockchain;
