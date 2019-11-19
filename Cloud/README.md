@@ -1,6 +1,6 @@
 # Cloud
 
-This section explains, with due technical details, all Cloud services used under this project. In the images folder
+This section explains, with due technical details, all Cloud services used under this project.
 
 ## Technologies
 
@@ -37,3 +37,10 @@ In conjunction with **IoT Greengrass**, this service is used to run local code o
 ![Cloud Pathway](https://github.com/l-silvestre/fikalab/blob/master/Cloud/Images/image6.png)
 
 **NOTE:** Details of how *RaspEstatico* MTQQ is sent can be found in the [*RaspEstatico* folder](https://github.com/l-silvestre/fikalab/tree/master/Cloud/RaspEstatico). Details of how **IoT Greengrass** was installed on GoPiGo in order to make it an IoT device and perform tasks locally can be found in the [GoPiGo folder](https://github.com/lsilvestre/fikalab/tree/master/Cloud/GoPiGo).
+
+## Folder Structure
+
+* **Images** - in this directory we put all the images used to explain the Cloud architecture
+* **Lambda** - directory where we put additional information about the project Lambdas and their codes
+* **RaspEstatico** - in this directory where we talked more about raspEstatico and insert its code from the Cloud
+* **GoPiGo** - directory that has more information and files about GoPiGo
