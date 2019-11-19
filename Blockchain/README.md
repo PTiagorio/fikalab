@@ -29,7 +29,7 @@ geth	#https://geth.ethereum.org/docs/install-and-build/installing-geth
 						
 
 						Directory Structure
-- deployApp	# Java application responsible for the depolyment of Smart Contracts (discontinued)
+
 - eth-net	# Root Directory of an implementation of a private ethereum local chain (discontinued)
 - smartContract	# Directory containing the SmartContract .sol files, as well as smartContract .abi .bin and java web3j wrappers as well 		as scripts to easily generate said files 
 - wallets	# Directory containing generated wallets (.json files) used through the project for testing
@@ -39,13 +39,15 @@ geth	#https://geth.ethereum.org/docs/install-and-build/installing-geth
 **Note**
 This directory is currently inactive due to the use of public Ethereum test networks, except for the smartContract directory which contains the current Smart Contract being used in out Project
 
-##deployApp
-- Intelij IDEA project created to easily implement the deployment the current Smart Contract
-
-
-
 ##eth-net
+In this folder is an inactive implementation of a private ethereum chain using geth.
 
+-db/		#Directory to contain the blockchain data
+-genesis.json	#Blockchain Genesis file (used for the network configuration)
+-geth.sh	#Script to launch the geth console connected to the local blockchain on localhost:8545
+-initChain.sh	#Script to initialize the the blockchain, receives the name for the data directory
+-passwords	#File with created accounts and passwords for the initiaized private chain
+-startPeer.sh	#Script to start a private chain node
 
 
 ##smartContract
@@ -61,9 +63,8 @@ This directory is currently inactive due to the use of public Ethereum test netw
 - ContractV2_sol_Contract.bin
 - ContractV2_sol_test.abi
 - ContractV2_sol_test.bin
-- ContractV3.sol		#**ontractV3 not being used**
+- ContractV3.sol		#**SmartContractV3 not being used**
 - genJava.sh			#Script to generate the SmartContract in Java language to use in Applications; This Script receives the 				#name of the .abi and .bin files as argument **note: .abi and .bin file names must be the same**     					#(e.g ./genJava Contract_sol_test)
-
 
 ##wallets
 - metamaskWallet.json									# wallet for Ethereum Kovan test network
