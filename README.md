@@ -60,6 +60,6 @@ $ sudo apt-get install npm
 
 ## Authors
 
-* **Tiago Ferreira**
-* **Luís Silvestre**
-* **Rodrigo Rafael**
+* **Tiago Ferreira** - Project Manager
+* **Luís Silvestre** - Blockchain Developer
+* **Rodrigo Rafael** - Software Developer
