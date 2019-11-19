@@ -1,6 +1,6 @@
 # Presentations
 
-Nesta pasta foram colocados os 
+In this folder the project presentations are located.
 
 ## Getting Started
 
