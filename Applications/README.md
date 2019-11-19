@@ -28,11 +28,11 @@ The Java application is the app that is ran by the Raspberry and serves as a lis
 
 ## Endpoints
 
-* **Main:** https://mainnet.infura.io/v3/b321b2057ccc412da1a6cfc01c158880
-* **Ropsten:** https://ropsten.infura.io/v3/b321b2057ccc412da1a6cfc01c158880
-* **Kovan:** https://kovan.infura.io/v3/b321b2057ccc412da1a6cfc01c158880
-* **Rinkeby:** https://rinkeby.infura.io/v3/b321b2057ccc412da1a6cfc01c158880
-* **websocket:** wss://"replace-with-network".infura.io/ws/v3/b321b2057ccc412da1a6cfc01c158880
+* **Main:** https://<span></span>mainnet.infura.io/v3/b321b2057ccc412da1a6cfc01c158880
+* **Ropsten:** https://<span></span>ropsten.infura.io/v3/b321b2057ccc412da1a6cfc01c158880
+* **Kovan:** https://<span></span>kovan.infura.io/v3/b321b2057ccc412da1a6cfc01c158880
+* **Rinkeby:** https://<span></span>rinkeby.infura.io/v3/b321b2057ccc412da1a6cfc01c158880
+* **websocket:** wss://<span></span>"replace-with-network".infura.io/ws/v3/b321b2057ccc412da1a6cfc01c158880
 
 ## Recomended Platforms
 * **[Android Studio](https://developer.android.com/studio/install)**
