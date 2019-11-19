@@ -20,9 +20,20 @@ For the first entity, smartphones were identified, as it would be an easy way to
 All that remained was to identify how the technologies would be used together. After several brainstorming sessions and several iterations, the group came up with a system architecture:
 
 ![General Architecture](https://github.com/l-silvestre/fikalab/blob/master/Cloud/Images/image9.png)
+Figura 1 - Mockup da Arquitetura do Sistema.
 
-### GLOBAL PRE-REQUISITES:
-npm Install
+Neste mockup estão presentes as entidades identificadas anteriormente. Criando uma ponte entre elas e este mockup: as entidades controladoras são os telemóveis; a entidade de comunicação é o Raspberry Pi, o qual é habitualmente denominado de *RaspEstatico* no nosso projeto; e finalmente o GoPiGo que é a entidade controlada.
+
+A blockchain está presente entre os telemóveis e o RaspEstático. A Blockchain irá permitir que todos os comandos realizados pelos telemóveis sejam conhecidos por todos os nós da rede e que os mesmos tenham características de imutabilidade e auditabilidade. A cloud / IoT serve de ponte entre o Raspberry e o GoPiGo. Será usado software para que o GoPiGo esteja subscrito à cloud, o qual consegue fazer com que todos os dispositivos subscritos se movam quando o RaspEstático comunica um comando vindo dos telemóveis. No nosso caso só existe um GoPiGo, mas a escalabildade é uma das principais características deste sistema, graças ao uso de IoT através da Cloud. 
+
+Os aspetos técnicos das tecnologias utilizadas serão explicados nos próximos capítulos, mas no geral a comunicação entre nodos do sistema pode ser sumarizada por:
+1. Comando dado por um utilizador do telemóvel para o carro se mexer (toque dum botão);
+1. RaspEstático está à escuta de uma evento despoletado pela Blockchain;
+1. RaspEstático comunica à cloud o comando a realizar;
+1. Cloud comunica ao GoPiGo o comando a realizar;
+
+### GLOBAL PRE-REQUISITES
+## npm Install
 Windows:
 [npm](https://www.npmjs.com/get-npm)  
 
