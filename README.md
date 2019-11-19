@@ -33,6 +33,7 @@ The technical aspects of the technologies used will be explained in the read-me 
 1. Cloud tells GoPiGo the command to perform;
 
 ## Repository Structure
+
 * Blockchain
 This directory is for all Blockchain information and content
 * Applications
@@ -41,8 +42,11 @@ This directory contains the two Apps from this project
 This directory has the information about the Cloud technologies
 * Presentations 
 In this directory are stored presentations developed by the group throughout the project
+
 ## GLOBAL PRE-REQUISITES
+
 ### npm Installation
+
 Windows:
 
 [npm](https://www.npmjs.com/get-npm) 
@@ -54,3 +58,9 @@ $ sudo apt-get update
 $ sudo apt-get install nodejs
 $ sudo apt-get install npm
 ```
+
+## Authors
+
+Tiago Ferreira
+Luís Silvestre
+Rodrigo Rafael
