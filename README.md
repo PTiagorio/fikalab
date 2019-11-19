@@ -21,21 +21,12 @@ All that remained was to identify how the technologies would be used together. A
 
 ![General Architecture](https://github.com/l-silvestre/fikalab/blob/master/Cloud/Images/image1.png)
 
-Após a conceção da ideia base para o nosso projeto, faltava chegar a uma solução para poder demonstrar que o sistema era possível de implementar na realidade. Um simples problema em que existe um carro-robô a ser controlado por alguém foi identificado como uma boa aproximação ao problema.
+### GLOBAL PRE-REQUISITES:
 
-O grupo olhou para tecnologias relativamente baratas e intuitivas. Foi necessário arranjar hardware para simular três diferentes entidades no nosso problema: 
-  1. A entidade controladora;
-  2. A entidade de comunicação entre a entidade controladora e a entidade a ser controlada;
-  3. A entidade a ser controlada.
+[npm](https://www.npmjs.com/get-npm) OR (ubuntu)
 
-Para a primeira entidade foram identificados smartphones, uma vez que seria fácil demonstrar várias entidades controladoras, porque smartphones são uma tecnologia bastante comum hoje em dia. Para a segunda entidade foi identificado o Raspberry Pi, uma vez que é um computador de tamanho aproximado a um cartão de crédito, versátil e barato. Finalmente para a terceira entidade foi descoberto o GoPiGo, um robô com rodas pré-fabricado para suportar um Raspberry Pi. A descoberta do GoPiGo foi um importante catalisador para cimentar a nossa solução, uma vez que é relativamente fácil demonstrar resultados quando a terceira entidade faz ações reais, neste caso, movimentar-se para onde o utilizador o comandar.
-
-Faltava apenas identificar como seriam usadas as tecnologias em conjunto. Após várias sessões de brainstorming e diversas iterações, o grupo chegou a uma arquitetura do sistema:
-
-						*PRE-REQUESITES*
-npm	#https://www.npmjs.com/get-npm
-	OR (ubuntu)	
-	#sudo apt-get update
-	#sudo apt-get install nodejs
-	#sudo apt-get install npm
-
+```
+$ sudo apt-get update
+$ sudo apt-get install nodejs
+$ sudo apt-get install npm
+```
