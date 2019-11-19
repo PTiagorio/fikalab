@@ -23,19 +23,7 @@ All that remained was to identify how the technologies would be used together. A
 
 #### PRE-REQUISITES FOR :
 
-[npm](https://www.npmjs.com/get-npm)
-	OR (ubuntu)
-```
-$ sudo apt-get update
-```
-
-```
-$ sudo apt-get install nodejs
-```
-
-```
-$ sudo apt-get install npm
-```
+[npm](https://www.npmjs.com/get-npm) OR (ubuntu)
 
 ```
 $ sudo apt-get update
