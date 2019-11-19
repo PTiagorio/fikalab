@@ -15,10 +15,11 @@ The group looked at relatively inexpensive and intuitive technologies. We had to
   2. The communication entity between the controlling entity and the entity to be controlled;
   3. The entity to be controlled.
 
-For the first entity, smartphones were identified, as it would be an easy way to demonstrate several controlling entities, because smartphones are a fairly common technology today. For the second entity the Raspberry Pi was identified, since it is a computer about the size of a credit card, being versatile and cheap. Finally for the third entity was discovered GoPiGo, a robot with wheels prefabricated to support a Raspberry Pi. The discovery of GoPiGo was an important catalyst to cement our solution, as it is relatively easy to demonstrate results when the third party takes real action, in this case moving to where the user commands it.
+For the first entity, smartphones were identified, as it would be an easy way to demonstrate several controlling entities, because smartphones are a fairly common technology today. For the second entity the Raspberry Pi was identified, since it is a computer about the size of a credit card, being versatile and cheap. Finally for the third entity was discovered GoPiGo, a robot with wheels prefabricated to support a Raspberry Pi. The discovery of the GoPiGo was an important catalyst to cement our solution, as it is relatively easy to demonstrate results when the third entity has real actions, in this case moving to where the user commands it.
 
 All that remained was to identify how the technologies would be used together. After several brainstorming sessions and several iterations, the group came up with a system architecture:
 
+!![Cloud Pathway](https://github.com/l-silvestre/fikalab/blob/master/Cloud/Images/image1.png)
 
 Após a conceção da ideia base para o nosso projeto, faltava chegar a uma solução para poder demonstrar que o sistema era possível de implementar na realidade. Um simples problema em que existe um carro-robô a ser controlado por alguém foi identificado como uma boa aproximação ao problema.
 
