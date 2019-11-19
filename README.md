@@ -46,7 +46,7 @@ Blockchain Architecture:
 	-The Raspberry Application will subscribe to the specific event defined in our Smart Contract
 	-When the event is caught the Raspberry Application will execute a python script.
 
-More Info on the [Blockchain](https://github.com/l-silvestre/fikalab/tree/master/Blockchain) and in the [Applications]((https://github.com/l-silvestre/fikalab/tree/master/Applications)
+More Info on the [Blockchain](https://github.com/l-silvestre/fikalab/tree/master/Blockchain) and in the [Applications](https://github.com/l-silvestre/fikalab/tree/master/Applications)
 
 ## GLOBAL PRE-REQUISITES
 ### npm Installation
