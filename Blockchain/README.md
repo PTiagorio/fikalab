@@ -1,4 +1,4 @@
-						Introdução à Blockchain
+#Blockchain Introduction
 Before Introducing the term blockchain, it is necessary to understand P2P (Peer-to-Peer) networks, one of the concepts behind blockchain.
 P2P networks are networks designed in a way that the data is spread among every participant of the network, denominated Peer.
 This technology was first released in 1999, with the file sharing platform napster, this platform was the first decentralized network, where peers shared data amongst themselves instead of having a central server.
@@ -18,7 +18,7 @@ The great advantage of Smart Contracts is the possibility of being programmable 
 
 The emergence of smart contracts has introduced the possibility to create what is known as DApps. DApps are applications that run on the Blockchain network and do not need any regulatory authority. An example of a decentralized application is Bitcoin, as well as any other virtual currency platform. However, the major difference from a decentralized application with Smart Contracts is that virtual currency platforms work only with transactions, whereas a decentralized application using Smart Contracts can include much more information in its blocks than a simple transaction and other information and interactions can be programmed.
 
-						*PRE-REQUESITES*
+##PRE-REQUESITES
 Solc	#npm install -g solc
 
 web3j	#https://docs.web3j.io/quickstart/
@@ -26,20 +26,33 @@ web3j	#https://docs.web3j.io/quickstart/
 
 geth	#https://geth.ethereum.org/docs/install-and-build/installing-geth
 
-						
+##Project Approach
+In this Project we chose Ethereum to take advantage of its Smart Contracts. For a first approach and testing purposes we chose to use one of Ethereum's test networks, [Kovan](https://kovan-testnet.github.io/website/) which uses the PoA(Proof-of-Authority) consensus, so we could largely reduce the time it takes to register a transaction in the blockchain. Ethereum was also chosen because it provides a [lightweight Java API](https://docs.web3j.io/) for both Java and Android through maven.  This API allows full interaction with an ethereum node. To connect to the Kovan network we are using the Infura Platform. 
+[Infura](https://infura.io/) is a platform that provides online nodes on the ethereum blockchain by simply connecting to an http endpoint or a websocket endpoint. 
+To implement our project we also needed to define a [Smart Contract](https://github.com/l-silvestre/fikalab/tree/master/Blockchain/smartContract) that could deal with our needs.
 
-						Directory Structure
+###Blockchain Architecture:
+* Mobile Devices and Raspberry use web3j and Infura to connect to Ethereum node on the kovan test network
+* The Smart Contract is loaded to the Blockchain and his address is known to the Apps
+* The Apps load their wallets or create them if none exist and load the Smart Contract to their context
+* The Mobile device can now Interact with the Smart Contract to move the GoPiGo
+* A call to the move function in the Smart Contract will throw an event
+* The Raspberry Application will subscribe to the specific event defined in our Smart Contract
+* When the event is caught the Raspberry Application will execute a python script.
 
-- eth-net	# Root Directory of an implementation of a private ethereum local chain (discontinued)
-- smartContract	# Directory containing the SmartContract .sol files, as well as smartContract .abi .bin and java web3j wrappers as well 		as scripts to easily generate said files 
-- wallets	# Directory containing generated wallets (.json files) used through the project for testing
-- README.md	# README file containing directory documentation and guidelines
+More Info on the [Applications](https://github.com/l-silvestre/fikalab/tree/master/Applications)
+##Directory Structure
+
+* eth-net	# Root Directory of an implementation of a private ethereum local chain (discontinued)
+* smartContract	# Directory containing the SmartContract .sol files, as well as smartContract .abi .bin and java web3j wrappers as well as scripts to easily generate said files 
+* wallets	# Directory containing generated wallets (.json files) used through the project for testing
+* README.md	# README file containing directory documentation and guidelines
 
 
 **Note**
 This directory is currently inactive due to the use of public Ethereum test networks, except for the smartContract directory which contains the current Smart Contract being used in out Project
 
-##eth-net
+###eth-net
 In this folder is an inactive implementation of a private ethereum chain using geth.
 
 -db/		#Directory to contain the blockchain data
@@ -50,35 +63,34 @@ In this folder is an inactive implementation of a private ethereum chain using g
 -startPeer.sh	#Script to start a private chain node
 
 
-##smartContract
-- SmartContract/		#folder in which the javaWrapper contracts are stored (Smart Contract implemented in Java through web3j)
-- compile.sh			#Script created to compile a contract, receives the name of the file as argument (e.g: ./compile.sh name)
-- Contract.sol			#Smart Contract written in Solidity #Current contract being used
-- Contract_sol_Contract.abi	#generated contract abi
-- Contract_sol_Contract.bin	#generated contract bin
-- Contract_sol_test.abi		#generated subClass abi
-- Contract_sol_test.bin		#generated subClass bin
-- ContractV2.sol		#**SmartContractV2 not being used**
-- ContractV2_sol_Contract.abi	#generted abi and bin for v2
-- ContractV2_sol_Contract.bin
-- ContractV2_sol_test.abi
-- ContractV2_sol_test.bin
-- ContractV3.sol		#**SmartContractV3 not being used**
-- genJava.sh			#Script to generate the SmartContract in Java language to use in Applications; This Script receives the 				#name of the .abi and .bin files as argument **note: .abi and .bin file names must be the same**     					#(e.g ./genJava Contract_sol_test)
+###smartContract
+* SmartContract/		#folder in which the javaWrapper contracts are stored (Smart Contract implemented in Java through web3j)
+* compile.sh			#Script created to compile a contract, receives the name of the file as argument (e.g: ./compile.sh name)
+* Contract.sol			#Smart Contract written in Solidity #Current contract being used
+* Contract_sol_Contract.abi	#generated contract abi
+* Contract_sol_Contract.bin	#generated contract bin
+* Contract_sol_test.abi		#generated subClass abi
+* Contract_sol_test.bin		#generated subClass bin
+* ContractV2.sol		#**SmartContractV2 not being used**
+* ContractV2_sol_Contract.abi	#generted abi and bin for v2
+* ContractV2_sol_Contract.bin
+* ContractV2_sol_test.abi
+* ContractV2_sol_test.bin
+* ContractV3.sol		#**SmartContractV3 not being used**
+* genJava.sh			#Script to generate the SmartContract in Java language to use in Applications; This Script receives the name of the .abi and .bin files as argument **note: .abi and .bin file names must be the same**     					#(e.g ./genJava Contract_sol_test)
 
-##wallets
-- metamaskWallet.json									# wallet for Ethereum Kovan test network
-											# password: pwd
-- UTC--2019-10-30T17-35-04.311000000Z--12cf0548932152c2705853e5f3f168eddb95458f.json	# 
-- UTC--2019-10-31T16-45-13.355000000Z--c431b1792b8d0d7d5c898e40bfe95f78fb40df78.json	#
-- UTC--2019-10-31T18-07-09.563000000Z--fb14cc995ba649b1924a8dccdc3a0ea326c48f98.json	#
+###wallets
+* metamaskWallet.json									# wallet for Ethereum Kovan test networkpassword: pwd
+* UTC--2019-10-30T17-35-04.311000000Z--12cf0548932152c2705853e5f3f168eddb95458f.json	# 
+* UTC--2019-10-31T16-45-13.355000000Z--c431b1792b8d0d7d5c898e40bfe95f78fb40df78.json	#
+* UTC--2019-10-31T18-07-09.563000000Z--fb14cc995ba649b1924a8dccdc3a0ea326c48f98.json	#
 
 In this folder are stored Ethereum Blockchain wallets, the metamaksWallet.json is the wallet for our main address in the Kovan test network that serves to give funds to the new created wallets amongst the devices
 
 The remainder wallet files were created in testing of the old ehtereum private chain.
 
 						References							
--https://medium.com/coinmonks/how-to-create-your-own-private-ethereum-blockchain-137ab15989c6
--https://medium.com/blockchainbistro/set-up-a-private-ethereum-blockchain-and-deploy-your-first-solidity-smart-contract-on-the-caa8334c343d
--https://medium.com/coinmonks/private-ethereum-by-example-b77063bb634f
+* https://medium.com/coinmonks/how-to-create-your-own-private-ethereum-blockchain-137ab15989c6
+* https://medium.com/blockchainbistro/set-up-a-private-ethereum-blockchain-and-deploy-your-first-solidity-smart-contract-on-the-caa8334c343d
+* https://medium.com/coinmonks/private-ethereum-by-example-b77063bb634f
 

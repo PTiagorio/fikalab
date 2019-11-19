@@ -32,22 +32,15 @@ The technical aspects of the technologies used will be explained in the read-me 
 1. *RaspEstatico* communicates the command to the cloud ;
 1. Cloud tells GoPiGo the command to perform;
 
-## Blockchain
-In this Project we chose Ethereum to take advantage of its Smart Contracts. For a irst approach and testing purposes we chose to use one of Ethereum's test networks, [Kovan](https://kovan-testnet.github.io/website/) which uses the PoA(Proof-of-Authority) consensus, so we could largely reduce the time it takes to register a transaction in the blockchain. Ethereum was also chosen because it provides a [lightweight Java API](https://docs.web3j.io/) for both Java and Android through maven.  This API allows full interaction with an ethereum node. To connect to the Kovan network we are using the Infura Platform. 
-[Infura](https://infura.io/) is a platform that provides online nodes on the ethereum blockchain by simply connecting to an http endpoint or a websocket endpoint. 
-To implement our project we also needed to define a [Smart Contract](https://github.com/l-silvestre/fikalab/tree/master/Blockchain/smartContract) that could deal with our needs.
-
-Blockchain Architecture:
-* Mobile Devices and Raspberry use web3j and Infura to connect to Ethereum node on the kovan test network
-* The Smart Contract is loaded to the Blockchain and his address is known to the Apps
-* The Apps load their wallets or create them if none exist and load the Smart Contract to their context
-* The Mobile device can now Interact with the Smart Contract to move the GoPiGo
-* A call to the move function in the Smart Contract will throw an event
-* The Raspberry Application will subscribe to the specific event defined in our Smart Contract
-* When the event is caught the Raspberry Application will execute a python script.
-
-More Info on the [Blockchain](https://github.com/l-silvestre/fikalab/tree/master/Blockchain) and in the [Applications](https://github.com/l-silvestre/fikalab/tree/master/Applications)
-
+## Repository Structure
+* Blockchain
+This directory is for all Blockchain information and content
+* Applications
+This directory contains the two Apps from this project
+* Cloud
+This directory has the information about the Cloud technologies
+* Presentations 
+In this directory are stored presentations developed by the group throughout the project
 ## GLOBAL PRE-REQUISITES
 ### npm Installation
 Windows:
