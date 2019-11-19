@@ -21,18 +21,18 @@ All that remained was to identify how the technologies would be used together. A
 
 ![General Architecture](https://github.com/l-silvestre/fikalab/blob/master/Cloud/Images/image1.png)
 
-### PRE-REQUISITES:
+#### PRE-REQUISITES FOR :
 
 [npm](https://www.npmjs.com/get-npm)
 	OR (ubuntu)
 ```
-#sudo apt-get update
+$ sudo apt-get update
 ```
 
 ```
-#sudo apt-get install nodejs
+$ sudo apt-get install nodejs
 ```
 
 ```
-#sudo apt-get install npm
+$ sudo apt-get install npm
 ```
