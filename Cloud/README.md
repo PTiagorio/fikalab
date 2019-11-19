@@ -4,7 +4,7 @@ Nesta secção são explicados, com os devidos detalhes técnicos, todas os serv
 
 ## Tecnologias
 
-O grupo optou por utilizar a Cloud da **Amazon Web Services** neste projeto, por motivos de rapidez, qualidade dos serviços e comodidade com a tecnologia. Como tal, os serviços apresentados a seguir correspondem aos serviços prestados pela **AWS**.
+O grupo optou por utilizar a Cloud da **Amazon Web Services** (AWS) neste projeto, por motivos de rapidez, qualidade dos serviços e comodidade com a tecnologia. Como tal, os serviços apresentados a seguir correspondem aos serviços prestados pela **AWS**.
 
 ### AWS IoT Core
 
@@ -24,7 +24,7 @@ AWS Lambda is a service that lets run code in Cloud or in other devices when wor
 
 ## Cloud Pathway Explained
 
-The Raspberry Pi 3B+ is listening decisions taken in the blockchain, and after get some results it connects to the Cloud through **AWS IoT Core**, publishing an MQTT message that tells which direction is supposed to make. Then, the **AWS IoT Greengrass** subscribes that topic to the corresponding **AWS Lambda** function, that runs locally in the GoPiGo the function needed to move the same GoPiGo.
+The Raspberry Pi 3B+ is listening decisions taken in the blockchain, and after get some results it connects to the Cloud through **AWS IoT Core**, publishing an Message Queuing Telemetry Transport (MQTT) message that tells which direction is supposed to make. Then, the **AWS IoT Greengrass** subscribes that topic to the corresponding **AWS Lambda** function, that runs locally in the GoPiGo the function needed to move the same GoPiGo.
 
 ![Cloud Pathway](https://github.com/l-silvestre/fikalab/blob/master/Cloud/Images/image2.png)
 
