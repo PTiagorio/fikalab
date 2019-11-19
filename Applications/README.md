@@ -10,11 +10,11 @@
 
 -Infura	#https://infura.io/
 	#ENDPOINTS:
-* [Main](https://mainnet.infura.io/v3/b321b2057ccc412da1a6cfc01c158880)
-* [Ropsten](https://ropsten.infura.io/v3/b321b2057ccc412da1a6cfc01c158880)
-* [Kovan](https://kovan.infura.io/v3/b321b2057ccc412da1a6cfc01c158880)
-* [Rinkeby](https://rinkeby.infura.io/v3/b321b2057ccc412da1a6cfc01c158880)
-* websocket: wss://"replace-with-network".infura.io/ws/v3/b321b2057ccc412da1a6cfc01c158880
+* **Main:** https://mainnet.infura.io/v3/b321b2057ccc412da1a6cfc01c158880
+* **Ropsten:** https://ropsten.infura.io/v3/b321b2057ccc412da1a6cfc01c158880
+* **Kovan:** https://kovan.infura.io/v3/b321b2057ccc412da1a6cfc01c158880
+* **Rinkeby:** https://rinkeby.infura.io/v3/b321b2057ccc412da1a6cfc01c158880
+* **websocket:** wss://"replace-with-network".infura.io/ws/v3/b321b2057ccc412da1a6cfc01c158880
 
 RECOMMENDED:
 	-Android Studio: https://developer.android.com/studio/install
