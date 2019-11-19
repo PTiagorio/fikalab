@@ -31,3 +31,11 @@ O grupo olhou para tecnologias relativamente baratas e intuitivas. Foi necessár
 Para a primeira entidade foram identificados smartphones, uma vez que seria fácil demonstrar várias entidades controladoras, porque smartphones são uma tecnologia bastante comum hoje em dia. Para a segunda entidade foi identificado o Raspberry Pi, uma vez que é um computador de tamanho aproximado a um cartão de crédito, versátil e barato. Finalmente para a terceira entidade foi descoberto o GoPiGo, um robô com rodas pré-fabricado para suportar um Raspberry Pi. A descoberta do GoPiGo foi um importante catalisador para cimentar a nossa solução, uma vez que é relativamente fácil demonstrar resultados quando a terceira entidade faz ações reais, neste caso, movimentar-se para onde o utilizador o comandar.
 
 Faltava apenas identificar como seriam usadas as tecnologias em conjunto. Após várias sessões de brainstorming e diversas iterações, o grupo chegou a uma arquitetura do sistema:
+
+						*PRE-REQUESITES*
+npm	#https://www.npmjs.com/get-npm
+	OR (ubuntu)	
+	#sudo apt-get update
+	#sudo apt-get install nodejs
+	#sudo apt-get install npm
+

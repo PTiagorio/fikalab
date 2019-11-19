@@ -295,18 +295,17 @@ public class Main {
                 String dir = log.dir;
                 String sender = log.sender;
                 String addr = log.log.getAddress();
-                System.out.println(name+", "+dir+", "+sender+", "+addr);
-                
-                synchronized((Object)sending){
+                /*synchronized((Object)sending){
                     if(sending==1){
-                        Thread.sleep(1000);
+                        Thread.sleep(3000);
                     }
                     sending=1;
-                }
+                }*/
+		System.out.println(name+", "+dir+", "+sender+", "+addr);
                 executeScript(name);
-                synchronized((Object)sending){
+                /*synchronized((Object)sending){
                     sending=0;
-                }
+                }*/
             }
             ,error ->System.err.print("erro: "+error));
 

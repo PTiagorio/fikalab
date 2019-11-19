@@ -260,21 +260,21 @@ public class MainActivity extends Activity  {
         }
     }
     public void onUp(View view){
-        Toast.makeText(this, "Direção: frente, Username: "+name, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Direção: frente, Username: "+con.getUsername(), Toast.LENGTH_SHORT).show();
         //updateHearts();
         callAction("cima");
     }
 
     public void onDown(View view){
-        Toast.makeText(this, "Direção: marcha-atrás, Username: "+name, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Direção: marcha-atrás, Username: "+con.getUsername(), Toast.LENGTH_SHORT).show();
         callAction("baixo");
     }
     public void onRight(View view){
-        Toast.makeText(this, "Direção: direita, Username: "+name, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Direção: direita, Username: "+con.getUsername(), Toast.LENGTH_SHORT).show();
         callAction("direita");
     }
     public void onLetf(View view){
-        Toast.makeText(this, "Direção: esquerda, Username: "+name, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Direção: esquerda, Username: "+con.getUsername(), Toast.LENGTH_SHORT).show();
         callAction("esquerda");
     }
 
@@ -315,7 +315,7 @@ public class MainActivity extends Activity  {
         protected String doInBackground(String... strings) {
             String str;
             Log.d("log","started");
-            str=con.Action(strings[0],name);
+            str=con.Action(strings[0],con.getUsername());
             Log.d("log","ended...");
             return str;
         }
