@@ -1,6 +1,6 @@
 #  Blockchain
 
-Nesta secção será apresentada uma introdução À tecnologia Blockchain, bem como pré requisitos e especificações 
+In this section an introduction to Blockchain technology will be presented as well as our project's prerequisites and specifications regarding this technology.
 
 ## Blockchain Introduction
 
@@ -62,14 +62,12 @@ More Info on the [Applications Folder](https://github.com/l-silvestre/fikalab/tr
 
 ## Directory Structure
 
-* eth-net	# Root Directory of an implementation of a private ethereum local chain (discontinued)
-* smartContract	# Directory containing the SmartContract .sol files, as well as smartContract .abi .bin and java web3j wrappers as well as scripts to easily generate said files 
-* wallets	# Directory containing generated wallets (.json files) used through the project for testing
-* README.md	# README file containing directory documentation and guidelines
+* **eth-net:** root directory of an implementation of a private ethereum local chain (discontinued)
+* **smartContract:** directory containing the SmartContract .sol files, as well as smartContract .abi .bin and java web3j wrappers as well as scripts to easily generate said files 
+* **wallets:**	# directory containing generated wallets (.json files) used through the project for testing
+* **README.md:**	# README file containing directory documentation and guidelines
 
-
-**Note**
-This directory is currently inactive due to the use of public Ethereum test networks, except for the smartContract directory which contains the current Smart Contract being used in out Project
+**NOTE:** This directory is currently inactive due to the use of public Ethereum test networks, except for the smartContract directory which contains the current Smart Contract being used in out Project.
 
 ### eth-net
 In this folder is an inactive implementation of a private ethereum chain using geth.
@@ -83,20 +81,20 @@ In this folder is an inactive implementation of a private ethereum chain using g
 
 
 ### smartContract
-* SmartContract/		#folder in which the javaWrapper contracts are stored (Smart Contract implemented in Java through web3j)
-* compile.sh			#Script created to compile a contract, receives the name of the file as argument (e.g: ./compile.sh name)
-* Contract.sol			#Smart Contract written in Solidity #Current contract being used
-* Contract_sol_Contract.abi	#generated contract abi
-* Contract_sol_Contract.bin	#generated contract bin
-* Contract_sol_test.abi		#generated subClass abi
-* Contract_sol_test.bin		#generated subClass bin
-* ContractV2.sol		#**SmartContractV2 not being used**
-* ContractV2_sol_Contract.abi	#generted abi and bin for v2
+* SmartContract - folder in which the javaWrapper contracts are stored (Smart Contract implemented in Java through web3j)
+* compile.sh - script created to compile a contract, receives the name of the file as argument (e.g: ./compile.sh name)
+* Contract.sol - smart Contract written in Solidity #Current contract being used
+* Contract_sol_Contract.abi - generated contract abi
+* Contract_sol_Contract.bin - generated contract bin
+* Contract_sol_test.abi - generated subClass abi
+* Contract_sol_test.bin - generated subClass bin
+* ContractV2.sol - **SmartContractV2 not being used**
+* ContractV2_sol_Contract.abi - generted abi and bin for v2
 * ContractV2_sol_Contract.bin
 * ContractV2_sol_test.abi
 * ContractV2_sol_test.bin
-* ContractV3.sol		#**SmartContractV3 not being used**
-* genJava.sh			#Script to generate the SmartContract in Java language to use in Applications; This Script receives the name of the .abi and .bin files as argument **note: .abi and .bin file names must be the same**     					#(e.g ./genJava Contract_sol_test)
+* ContractV3.sol - **SmartContractV3 not being used**
+* genJava.sh - script to generate the SmartContract in Java language to use in Applications; This Script receives the name of the ".abi" and ".bin" files as argument **NOTE: ".abi" and ".bin" file names must be the same** (e.g ./genJava Contract_sol_test)
 
 ### wallets
 * metamaskWallet.json - wallet for Ethereum Kovan test network
@@ -105,7 +103,7 @@ In this folder is an inactive implementation of a private ethereum chain using g
 * UTC--2019-10-31T16-45-13.355000000Z--c431b1792b8d0d7d5c898e40bfe95f78fb40df78.json
 * UTC--2019-10-31T18-07-09.563000000Z--fb14cc995ba649b1924a8dccdc3a0ea326c48f98.json
 
-In this folder are stored Ethereum Blockchain wallets, the metamaksWallet.json is the wallet for our main address in the Kovan test network that serves to give funds to the new created wallets amongst the devices
+In this folder are stored Ethereum Blockchain wallets, the metamaksWallet.json is the wallet for our main address in the Kovan test network that serves to give funds to the new created wallets amongst the devices.
 
 The remainder wallet files were created in testing of the old ehtereum private chain.
 
