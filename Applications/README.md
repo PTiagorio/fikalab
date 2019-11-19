@@ -8,6 +8,8 @@ The Java application is the app that is ran by the Raspberry and serves as a lis
 
 ## Directory Structure
 * **Android-Device:** Directory that contais the android studio project of the android app and the compiled ".apk"
+  * **EthAndroid**
+  * **GoPiGoRemoteController.apk**
 * **RaspberrypiAp:** Directory that contains the maven project for the raspberry app as well as the compile ".jar" file for the app
   * **webj3App:** a script to generate the .jar file and a script to run the ".jar" file
   * **createwebj3AppJar.sh**
