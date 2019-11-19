@@ -19,7 +19,7 @@ For the first entity, smartphones were identified, as it would be an easy way to
 
 All that remained was to identify how the technologies would be used together. After several brainstorming sessions and several iterations, the group came up with a system architecture:
 
-!(https://github.com/l-silvestre/fikalab/blob/master/Cloud/Images/image1.png)
+![General Architecture](https://github.com/l-silvestre/fikalab/blob/master/Cloud/Images/image1.png)
 
 Após a conceção da ideia base para o nosso projeto, faltava chegar a uma solução para poder demonstrar que o sistema era possível de implementar na realidade. Um simples problema em que existe um carro-robô a ser controlado por alguém foi identificado como uma boa aproximação ao problema.
 
