@@ -10,7 +10,9 @@ Back to blockchain, Blockchain fits in the DLTs box, meaning it’s one implemen
 
 Each Blockchain can have its own implementation when it comes to the blocks structure but there are three fundamental ones: previous hash, current block hash, timestamp and usually what we called nonce.
 Following is an example of a possible block.
+
 ![block](https://github.com/l-silvestre/fikalab/tree/master/Blockchain/images/block.png)
+
 One of the most important features of the Blockchain is immutability, meaning once the consensus is reached in the network and the block is appended to the blockchain it cannot be changed, that’s achieved with the current block hash and previous hash mentioned above. In a blockchain block all the data of the registered transactions, note that each block can record more than one transaction, is encrypted and will be transformed into a hashcode, what this means is that the hash will modify if any of the block data changes, so in a situation where all the blocks have their previous hash, changing one block will consequently change all of the network, making it impossible to modify the network once the blocks are validated and appended in the chain.
 
 How are the blocks validated in a P2P system like blockchain? How do we reach consensus about the veracity of the block? This is Blockchain’s biggest and most important feature, the consensus mechanisms and what makes Blockchain so relevant. In order to validate a Block a consensus has to be reached in the network amongst all the peers which makes it susceptible to what is in the Blockchain World known as 51% attack, this means that if someone can control 51% of the network then they can forge transactions and validate those “maleficent” blocks. In order to deal with this vulnerability there were created Consensus Algorithms, methods to guarantee or to make it very hard for someone to be able to explore such vulnerabilities. The most well-known is the Proof-of-Work(PoW) algorithm, used first by Bitcoin and followed by many Blockchain networks that came after. In this algorithm the peers are incentivated to validate blocks, that is done by offering a reward to the peer who validates the block, which is what we call mining. To mine a block, peers need to race against each other in order to receive the reward, this “race” consists on solving a cryptographic puzzle, extremely hard and demanding in processing power but oppositely easy to validate the solution, this puzzle involves the nonce value, a nonce is a value used to make sure that the block hash meets certain conditions, for example starting with 30 zeros, this can vary from blockchain to blockchain, the miners use computing power to race in search for the correct nonce for each block and are then rewarded for it, usually with cryptocurrency from the mined Blockchain.
@@ -43,6 +45,7 @@ To implement our project we also needed to define a [Smart Contract](https://git
 * When the event is caught the Raspberry Application will execute a python script.
 
 More Info on the [Applications](https://github.com/l-silvestre/fikalab/tree/master/Applications)
+
 ## Directory Structure
 
 * eth-net	# Root Directory of an implementation of a private ethereum local chain (discontinued)
