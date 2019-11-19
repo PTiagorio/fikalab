@@ -91,7 +91,7 @@ In this folder are stored Ethereum Blockchain wallets, the metamaksWallet.json i
 
 The remainder wallet files were created in testing of the old ehtereum private chain.
 
-						References							
+##References							
 * https://medium.com/coinmonks/how-to-create-your-own-private-ethereum-blockchain-137ab15989c6
 * https://medium.com/blockchainbistro/set-up-a-private-ethereum-blockchain-and-deploy-your-first-solidity-smart-contract-on-the-caa8334c343d
 * https://medium.com/coinmonks/private-ethereum-by-example-b77063bb634f
