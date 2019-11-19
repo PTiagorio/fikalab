@@ -32,10 +32,13 @@ Para a primeira entidade foram identificados smartphones, uma vez que seria fác
 
 Faltava apenas identificar como seriam usadas as tecnologias em conjunto. Após várias sessões de brainstorming e diversas iterações, o grupo chegou a uma arquitetura do sistema:
 
-						*PRE-REQUESITES*
+###PRE-REQUISITES:
+
 npm	#https://www.npmjs.com/get-npm
-	OR (ubuntu)	
+	OR (ubuntu)
+'''
 	#sudo apt-get update
-	#sudo apt-get install nodejs
+'''
+#sudo apt-get install nodejs
 	#sudo apt-get install npm
 
