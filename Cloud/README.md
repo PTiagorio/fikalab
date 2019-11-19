@@ -20,7 +20,7 @@ In the context of this project Greengrass is responsible for the communication b
 
 ### AWS Lambda
 
-AWS Lambda is a service that lets code run in the Cloud or in other devices when working with AWS IoT Greengrass.
+**AWS Lambda** is a service that lets code run in the Cloud or in other devices when working with AWS IoT Greengrass.
 
 In conjunction with **IoT Greengrass**, this service is used to run local code on the GoPiGo. 
 
