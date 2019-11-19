@@ -21,7 +21,7 @@ All that remained was to identify how the technologies would be used together. A
 
 ![General Architecture](https://github.com/l-silvestre/fikalab/blob/master/Cloud/Images/image1.png)
 
-#### PRE-REQUISITES FOR :
+#### PRE-REQUISITES FOR THE PROJECT IN GENERAL:
 
 [npm](https://www.npmjs.com/get-npm) OR (ubuntu)
 
