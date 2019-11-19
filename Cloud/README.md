@@ -1,6 +1,6 @@
 # Cloud
 
-Nesta secção são explicados, com os devidos detalhes técnicos, todas os serviços da Cloud utilizados no âmito deste projeto.
+Nesta secção são explicados, com os devidos detalhes técnicos, todas os serviços da Cloud utilizados no âmbito deste projeto.
 
 ## Tecnologias
 
@@ -22,14 +22,15 @@ No contexto deste projeto o Greengrass é o que realiza a comunicação entre o 
 
 AWS Lambda is a service that lets run code in Cloud or in other devices when working with AWS IoT Greengrass.
 
+Neste projeto este serviço foi utilizado para, juntamente com o IoT Greengrass, correr código no GoPiGo localmente.
+
 ## Cloud Pathway Explained
 
 The Raspberry Pi 3B+ is listening decisions taken in the blockchain, and after get some results it connects to the Cloud through **AWS IoT Core**, publishing an Message Queuing Telemetry Transport (MQTT) message that tells which direction is supposed to make. Then, the **AWS IoT Greengrass** subscribes that topic to the corresponding **AWS Lambda** function, that runs locally in the GoPiGo the function needed to move the same GoPiGo.
 
 ![Cloud Pathway](https://github.com/l-silvestre/fikalab/blob/master/Cloud/Images/image2.png)
 
-**Nota:** Detalhes de como foi enviado o MTQQ do Raspberry Pi 3B+ estático e como instalado o Greengrass no GoPiGo de forma ao mesmo se tornar um dispositivo de IoT e conseguir correr funções localmente podem ser encontrados na [pasta dos Raspberry Pi 3B+](http://www.dropwizard.io/1.0.2/docs/) neste projeto.
-
+**Nota:** Detalhes de como foi enviado o MTQQ do Raspberry Pi 3B+ estático e como instalado o Greengrass no GoPiGo de forma ao mesmo se tornar um dispositivo de IoT e conseguir correr funções localmente podem ser encontrados na [pasta dos Raspberry Pi 3B+](http://www.dropwizard.io/1.0.2/docs/) deste projeto.
 
 
 
