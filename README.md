@@ -22,6 +22,15 @@ All that remained was to identify how the technologies would be used together. A
 ![General Architecture](https://github.com/l-silvestre/fikalab/blob/master/Cloud/Images/image9.png)
 System Architecture Mockup.
 
+In this mockup the entities identified earlier are present. Bridging the gap between them and this mockup: the controlling entities are the mobile phones; The communication entity is the Raspberry Pi, which is commonly referred to as *RaspEstatico* in our project; and finally the GoPiGo which is the controlled entity.
+
+The blockchain is present between mobile phones and  the *RaspEstatico*. Blockchain will allow all commands made by mobile phones to be known to all nodes of the network and to have immutability and auditability characteristics. The cloud / IoT serves as a bridge between the *RaspEstatico* and GoPiGo. Software will be used to have GoPiGo subscribed to the cloud, which can make all subscribed devices move when *RaspEstatico* communicates a command. In our case there is only one GoPiGo, but scalability is one of the main features of this system, because of the use of IoT through the Cloud.
+
+The technical aspects of the technologies used will be explained in the read-me files of other folders, but in general the communication between system nodes can be summarized by:
+1. A command given by a mobile phone user to move the car (touch of a button);
+1. *RaspEstatico* is listening to an event triggered by Blockchain;
+1. *RaspEstatico* communicates the command to the cloud ;
+1. Cloud tells GoPiGo the command to perform;
 
 ## Blockchain
 In this Project we chose Ethereum to take advantage of its Smart Contracts. For a irst approach and testing purposes we chose to use one of Ethereum's test networks, [Kovan](https://kovan-testnet.github.io/website/) which uses the PoA(Proof-of-Authority) consensus, so we could largely reduce the time it takes to register a transaction in the blockchain. Ethereum was also chosen because it provides a [lightweight Java API](https://docs.web3j.io/) for both Java and Android through maven.  This API allows full interaction with an ethereum node. To connect to the Kovan network we are using the Infura Platform. 
@@ -38,17 +47,6 @@ Blockchain Architecture:
 	-When the event is caught the Raspberry Application will execute a python script.
 
 More Info on the [Blockchain](https://github.com/l-silvestre/fikalab/tree/master/Blockchain) and in the [Applications]((https://github.com/l-silvestre/fikalab/tree/master/Applications)
-
-
-In this mockup the entities identified earlier are present. Bridging the gap between them and this mockup: the controlling entities are the mobile phones; The communication entity is the Raspberry Pi, which is commonly referred to as *RaspEstatico* in our project; and finally the GoPiGo which is the controlled entity.
-
-The blockchain is present between mobile phones and  the *RaspEstatico*. Blockchain will allow all commands made by mobile phones to be known to all nodes of the network and to have immutability and auditability characteristics. The cloud / IoT serves as a bridge between the *RaspEstatico* and GoPiGo. Software will be used to have GoPiGo subscribed to the cloud, which can make all subscribed devices move when *RaspEstatico* communicates a command. In our case there is only one GoPiGo, but scalability is one of the main features of this system, because of the use of IoT through the Cloud.
-
-The technical aspects of the technologies used will be explained in the read-me files of other folders, but in general the communication between system nodes can be summarized by:
-1. A command given by a mobile phone user to move the car (touch of a button);
-1. *RaspEstatico* is listening to an event triggered by Blockchain;
-1. *RaspEstatico* communicates the command to the cloud ;
-1. Cloud tells GoPiGo the command to perform;
 
 ## GLOBAL PRE-REQUISITES
 ### npm Installation
