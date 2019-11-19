@@ -26,7 +26,7 @@ web3j	#https://docs.web3j.io/quickstart/
 
 geth	#https://geth.ethereum.org/docs/install-and-build/installing-geth
 
-##Project Approach
+## Project Approach
 In this Project we chose Ethereum to take advantage of its Smart Contracts. For a first approach and testing purposes we chose to use one of Ethereum's test networks, [Kovan](https://kovan-testnet.github.io/website/) which uses the PoA(Proof-of-Authority) consensus, so we could largely reduce the time it takes to register a transaction in the blockchain. Ethereum was also chosen because it provides a [lightweight Java API](https://docs.web3j.io/) for both Java and Android through maven.  This API allows full interaction with an ethereum node. To connect to the Kovan network we are using the Infura Platform. 
 [Infura](https://infura.io/) is a platform that provides online nodes on the ethereum blockchain by simply connecting to an http endpoint or a websocket endpoint. 
 To implement our project we also needed to define a [Smart Contract](https://github.com/l-silvestre/fikalab/tree/master/Blockchain/smartContract) that could deal with our needs.
