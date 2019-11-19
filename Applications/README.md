@@ -18,9 +18,9 @@
 * **Rinkeby:** https://rinkeby.infura.io/v3/b321b2057ccc412da1a6cfc01c158880
 * **websocket:** wss://"replace-with-network".infura.io/ws/v3/b321b2057ccc412da1a6cfc01c158880
 
-RECOMMENDED:
-	-Android Studio: https://developer.android.com/studio/install
-	-IntelliJ IDEA: https://www.jetbrains.com/idea/download/
+## RECOMMENDED:
+* **[Android Studio](https://developer.android.com/studio/install)**
+* **[IntelliJ IDEA](https://www.jetbrains.com/idea/download/)**
 
 						Description
 In this directory are both the applications implemented in this project, one is a Java application and the other an Android application. Both applications use the web3j API and Infura platform to interact with the Ethereum Kovan test network. Both applications also have maven dependencies.
