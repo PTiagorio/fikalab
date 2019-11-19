@@ -9,7 +9,7 @@ Because GoPiGo is connected to IoT Greengrass [as explained here](https://github
 ## Creation
 
 The Lambdas were created based on [this official tutorial](https://docs.aws.amazon.com/greengrass/latest/developerguide/module3-II.html), 
-placing its code and dependencies in this folder as "**.zip**" in its respective Lambda function.
+placing the code and dependencies in this folder as "**.zip**" in its respective Lambda function.
 All Lambdas are built with an existing function that gives you access to all existing features, as shown in the following image:
 
 ![All Existing Features in Lambda](https://github.com/l-silvestre/fikalab/blob/master/Cloud/Images/image7.png)
