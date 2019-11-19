@@ -28,7 +28,7 @@ In conjunction with **IoT Greengrass**, this service is used to run local code o
 
 *RaspEstatico* is waiting for an event to be triggered by the blockchain network, when that happens, the *RaspEstatico* connects to the Cloud through **AWS IoT Core**, publishing a Message Queuing Telemetry Transport (MQTT) which contains the desired direction. Then, the **AWS IoT Greengrass** has a topic subscription for each direction and a corresponding **AWS Lambda** function, which runs locally in the GoPiGo to move it.
 
-![Cloud Pathway](https://github.com/l-silvestre/fikalab/blob/master/Cloud/Images/image2.png)
 ![Cloud Pathway](https://github.com/l-silvestre/fikalab/blob/master/Cloud/Images/image10.png)
+![Cloud Pathway](https://github.com/l-silvestre/fikalab/blob/master/Cloud/Images/image2.png)
 
 **NOTE:** Details of how *RaspEstatico* MTQQ is sent can be found in the [*RaspEstatico* folder](https://github.com/l-silvestre/fikalab/tree/master/Cloud/RaspEstatico). Details of how **IoT Greengrass** was installed on GoPiGo in order to make it an IoT device and perform tasks locally can be found in the [GoPiGo folder](https://github.com/lsilvestre/fikalab/tree/master/Cloud/GoPiGo).
