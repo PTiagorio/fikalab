@@ -16,18 +16,18 @@ In order to run code on GoPiGo as it were locally to control it and form an IoT,
 
 ### Greengrass Instalation
 
-Nós instalámos o software seguindo os seguintes passos no Raspberry Pi:
+We installed the Greengrass software by following these steps on Raspberry Pi:
 
-1. Adicionar grupos e users
+1. Add groups and users
 ```
 $ sudo adduser --system ggc_user
 $ sudo addgroup --system ggc_group
 
 ```
 
-2. Aumentar a segurança
+2. Increase security
 ```
-$ sudo nano 98-rpi.conf **(ou similar) e escrever no final do artigo:**
+$ sudo nano 98-rpi.conf **(or similar) and write at the end of the file:**
 fs.protected_hardlinks = 1
 fs.protected_symlinks = 1
 
