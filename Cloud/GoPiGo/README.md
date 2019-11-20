@@ -57,7 +57,7 @@ $ sudo ./check_ggc_dependencies | more
 ```
 
 **5. Setting the Group of the AWS IoT Core:**
-depends on each cloud group, follow [this](https://docs.aws.amazon.com/greengrass/latest/developerguide/gg-config.html) and [this](https://docs.aws.amazon.com/greengrass/latest/developerguide/gg-device-start.html) official tutorials.
+it depends on each cloud group, follow [this](https://docs.aws.amazon.com/greengrass/latest/developerguide/gg-config.html) and [this](https://docs.aws.amazon.com/greengrass/latest/developerguide/gg-device-start.html) official tutorials.
 
 ### Greengrass Commands
 To use the Greengrass software, use this commands:
