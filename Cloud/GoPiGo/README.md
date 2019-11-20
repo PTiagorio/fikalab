@@ -77,4 +77,4 @@ $ cd /greengrass/ggc/core/
 $ sudo ./greengrassd stop
 ```
 
-NOTE: if you want this part to be automatic so you don't need to insert it every time you start Raspberry Pi, follow [this tutorial](https://docs.aws.amazon.com/greengrass/latest/developerguide/gg-core.html#start-on-boot).
+**NOTE:** if you want this part to be automatic so you don't need to insert it every time you start Raspberry Pi, follow [this tutorial](https://docs.aws.amazon.com/greengrass/latest/developerguide/gg-core.html#start-on-boot).
