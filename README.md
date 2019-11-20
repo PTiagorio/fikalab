@@ -48,7 +48,7 @@ In this directory are stored presentations developed by the group throughout the
 
 Windows:
 
- * [npm](https://www.npmjs.com/get-npm)
+* [npm](https://www.npmjs.com/get-npm)
 
 Ubuntu:
 
