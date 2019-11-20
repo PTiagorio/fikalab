@@ -1,6 +1,7 @@
 package com.example.ethandroid;
 
 import androidx.annotation.MainThread;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -82,17 +83,10 @@ public class MainActivity extends Activity  {
         try {
             setupBouncyCastle();
 
-        }catch(Exception e){
-            Log.d("log","erro main: "+e);
+        }catch(Exception e) {
+            Log.d("log", "erro main: " + e);
         }
-        connect();
-        wallet();
-        //con.requestEther();
-        //con.delMetaMask();
-        Log.d("log","b: "+con.getBalance());
-        if(con.getBalance()<=0.0){
-            new RequestThread().execute();
-        }
+
         hearts = findViewById(R.id.hearts);
         heart[0] = findViewById(R.id.heart1);
         heart[1] = findViewById(R.id.heart2);
@@ -100,16 +94,33 @@ public class MainActivity extends Activity  {
         //((ViewGroup) hearts.getParent()).removeView(hearts);
         //((ViewGroup) hearts.getParent()).removeView(hearts);
         hearts.setVisibility(View.GONE);
-        /*Thread t = new Thread(){
-            @Override
-            public void run(){
-                con.deployContract();
+
+
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        switch (requestCode){
+            case 1:
+            {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    connect();
+                    wallet();
+                    Log.d("log","b: "+con.getBalance());
+                    if(con.getBalance()<=0.0){
+                        new RequestThread().execute();
+                    }
+                    load();
+                } else {
+                    // permission denied, boo! Disable the
+                    // functionality that depends on this permission.
+                    Toast.makeText(this,"Permissions not granted, cant't load or create Wallet.json",Toast.LENGTH_SHORT).show();
+                }
+                return;
             }
-        };
-        t.start();*/
-
-        load();
-
+        }
     }
 
     /*@Override
