@@ -20,14 +20,14 @@ Nós instalámos o software seguindo os seguintes passos no Raspberry Pi:
 
 1. Adicionar grupos e users
 ```
-sudo adduser --system ggc_user
-sudo addgroup --system ggc_group
+$ sudo adduser --system ggc_user
+$ sudo addgroup --system ggc_group
 
 ```
 
-1. Aumentar a segurança
+2. Aumentar a segurança
 ```
-sudo nano 98-rpi.conf **(ou similar) e escrever no final do artigo:**
+$ sudo nano 98-rpi.conf **(ou similar) e escrever no final do artigo:**
 fs.protected_hardlinks = 1
 fs.protected_symlinks = 1
 
