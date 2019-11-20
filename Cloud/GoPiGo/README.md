@@ -2,6 +2,8 @@
 
 In this section we specify all the necessary GoPiGo files and information for our project.
 
+![GoPiGo Image](https://github.com/l-silvestre/fikalab/blob/master/Cloud/Images/image11.jpg)
+
 ## Operatig System
 
 The operating system used in GoPiGo was Rapbian for Robots, which can be seen an installation tutorial [here](https://www.dexterindustries.com/howto/install-raspbian-for-robots-image-on-an-sd-card/).
