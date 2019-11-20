@@ -18,18 +18,50 @@ In order to run code on GoPiGo as it were locally to control it and form an IoT,
 
 We installed the Greengrass software by following these steps on Raspberry Pi:
 
-1. Add groups and users
+1. Add groups and users:
 ```
 $ sudo adduser --system ggc_user
 $ sudo addgroup --system ggc_group
-
 ```
 
-2. Increase security
+2. Increase security:
 ```
 $ sudo nano 98-rpi.conf
+
 (Or similar) and write at the end of the file:
 fs.protected_hardlinks = 1
 fs.protected_symlinks = 1
+
+$ sudo reboot
+$ sudo sysctl -a 2> /dev/null | grep fs.protected 
+(To confirm the change)
+```
+
+3. Allow mount from memory cgroups:
+```
+$ cd /boot/
+$ cgroup_enable=memory cgroup_memory=1
+$ sudo reboot
+```
+
+4. Confirm if everything is fine:
+```
+$ cd /home/pi/Downloads
+$ wget https://github.com/aws-samples/aws-greengrass-samples/raw/master/greengrass-dependency-checker-GGCv1.9.x.zip
+$ unzip greengrass-dependency-checker-GGCv1.9.x.zip
+$ cd greengrass-dependency-checker-GGCv1.9.x
+$ sudo modprobe configs
+$ sudo ./check_ggc_dependencies | more
+
+(Then, check if everything is alright)
+```
+
+5. Setting the Group of the AWS IoT Core:
+```
+Depends on each cloud group, follow [this]() and [this]() official tutorials.
+```
+
+
+```
 
 ```
