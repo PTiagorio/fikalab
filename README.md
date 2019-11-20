@@ -3,8 +3,8 @@
 This project consists of a proof-of-concept based on a conceptually simple problem: a system built for a robot car to be controlled by several mobile phones. However, the approach to this problem was made with cutting-edge, complex, innovative and technically challenging technologies: Internet of Things, Cloud and Blockchain.
 
 This project is based on the idea of bringing these two technologies together, taking advantage of the best features of both and creating a scalable system in which multiple entities control multiple devices. Reaching a system that guarantees:
-  * Auditability and immutability from Blockchain;
-  * Cloud processing delegation capability and scalability of node numbers from the Cloud and the Internet of Things.
+  * Auditability and immutability from Blockchain
+  * Cloud processing delegation capability and scalability of node numbers from the Cloud and the Internet of Things
 
 ## Path Taken
 
