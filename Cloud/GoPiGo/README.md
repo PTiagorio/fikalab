@@ -27,7 +27,8 @@ $ sudo addgroup --system ggc_group
 
 2. Increase security
 ```
-$ sudo nano 98-rpi.conf **(or similar) and write at the end of the file:**
+$ sudo nano 98-rpi.conf
+(Or similar) and write at the end of the file:
 fs.protected_hardlinks = 1
 fs.protected_symlinks = 1
 
