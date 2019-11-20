@@ -57,9 +57,24 @@ $ sudo ./check_ggc_dependencies | more
 ```
 
 **5. Setting the Group of the AWS IoT Core:**
-Depends on each cloud group, follow [this](https://docs.aws.amazon.com/greengrass/latest/developerguide/gg-config.html) and [this](https://docs.aws.amazon.com/greengrass/latest/developerguide/gg-device-start.html) official tutorials.
+depends on each cloud group, follow [this](https://docs.aws.amazon.com/greengrass/latest/developerguide/gg-config.html) and [this](https://docs.aws.amazon.com/greengrass/latest/developerguide/gg-device-start.html) official tutorials.
 
+### Greengrass Commands
+To use the Greengrass software, use this commands:
 
+* **To Start:**
+```
+$ cd /greengrass/ggc/core/
+$ sudo ./greengrassd start
+$ ps aux | grep -E 'greengrass.*daemon'
+
+(The last command confirms that the thread is running)
 ```
 
+* **To Stop:**
 ```
+$ cd /greengrass/ggc/core/
+$ sudo ./greengrassd stop
+```
+
+NOTE: if you want this part to be automatic so you don't need to insert it every time you start Raspberry Pi, follow [this tutorial](https://docs.aws.amazon.com/greengrass/latest/developerguide/gg-core.html#start-on-boot).
