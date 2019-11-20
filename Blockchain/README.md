@@ -49,8 +49,8 @@ More Info on the [Applications Folder](https://github.com/l-silvestre/fikalab/tr
 
 * **eth-net:** root directory of an implementation of a private ethereum local chain (discontinued)
 * **smartContract:** directory containing the SmartContract .sol files, as well as smartContract .abi .bin and java web3j wrappers as well as scripts to easily generate said files 
-* **wallets:**	# directory containing generated wallets (.json files) used through the project for testing
-* **README.md:**	# README file containing directory documentation and guidelines
+* **wallets:**	directory containing generated wallets (.json files) used through the project for testing
+* **README.md:**	README file containing directory documentation and guidelines
 
 **NOTE:** This directory is currently inactive due to the use of public Ethereum test networks, except for the smartContract directory which contains the current Smart Contract being used in out Project.
 
